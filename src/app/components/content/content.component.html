@@ -1,0 +1,9 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="main">
+    <ul>
+        <li *ngFor="let item of content">
+            <a *ngIf="item.url === ''" [routerLink]="item.routerLink" [queryParams]="item.queryParams">{{ item.name }}</a>
+            <a *ngIf="item.url !== ''" href="{{item.url}}" target="_blank">{{ item.name }}</a>
+        </li>
+    </ul>
+  </div>

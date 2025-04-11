@@ -1,0 +1,11 @@
+<section class="main-section-anons">
+    <div class="main-section-title">
+        <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+    </div> 
+    <div *ngFor="let item of listdocs;">
+        <div class="m-2 p-2  surface-0 surface-hover">
+            <div class="gray-900 text-xs date-news">{{item.date | date: 'dd/MM/yyyy'}}</div>
+            <a [routerLink]="routerLink" [queryParams]='{"id":item.id}' [innerHTML]="item.text"></a>  
+        </div>    
+    </div>  
+</section>

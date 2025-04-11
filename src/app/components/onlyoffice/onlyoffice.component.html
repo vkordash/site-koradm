@@ -1,0 +1,10 @@
+<p-dialog [(visible)]="visible" [style]="{width: '95vw', height: '95vh'}"  >
+  <document-editor 
+    id="docxForComments" 
+    documentServerUrl="http://192.168.77.253:8080"
+    [config]="config"
+    [events_onDocumentReady]="onDocumentReady"
+    height="100%"
+    width="100%"
+  ></document-editor>
+</p-dialog>

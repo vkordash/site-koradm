@@ -1,0 +1,8 @@
+
+<div *ngIf="chips.length>0">
+  <span *ngFor="let item of chips ">
+    <a routerLink="/" class="ml-2">
+      <button pButton type="button" label="{{item}}" class="p-button-sm p-button-secondary p-button-raised p-button-rounded p-button-outlined"></button>
+    </a>      
+  </span>
+</div>

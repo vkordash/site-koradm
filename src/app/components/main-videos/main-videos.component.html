@@ -1,0 +1,14 @@
+<section class="main-video">
+    <div class="main-section-title">
+        <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+    </div>
+    <div class="main-section-content flex flex-wrap flex-grow-0 justify-content-around">
+        <div *ngFor="let item of ListVideos;">
+            <div  class="m-2 p-2  surface-0 surface-hover" >
+                <div [innerHTML]="item.link_frame | sanitizedHtml"></div>
+                <div>{{item.text}}</div>
+                <div>{{item.date | date: 'dd/MM/yyyy'}}</div>                
+            </div>  
+        </div>  
+    </div>     
+</section>

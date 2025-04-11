@@ -1,0 +1,11 @@
+<h3><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h3>
+<div *ngFor="let item of listNews;">
+    <div  class="m-2 p-2 bg-blue-200">
+        <a [routerLink]="routerLink" [queryParams]='{"id":item.id}'>{{ item.head }}</a>  
+    </div>  
+</div>  
+
+
+
+
+

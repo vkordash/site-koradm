@@ -1,0 +1,50 @@
+<section class="main-search w-full">
+    <!--    <h2 class="visuallyhidden">Пошук нормативно-правових актів</h2> -->
+    <div class="main-section-title">
+        <h2 class='main-title-text'><a href="/search?from=main">Пошук нормативно-правових актів</a></h2>
+    </div> 
+
+    <div class="main-section-form flex">
+            <form #formMainSearch [formGroup]="docs_search_Form" action="/search/?from-main=1" method="get" target="_blank" (ngSubmit)="onSubmit()"> 
+                <div class="flex flex-row">
+                    <div class="field align-items-center p-2 ">
+                        <label for="doc_text_search" class="block">Ключові слова у назві або тексті</label>
+                        <input type="text" pInputText placeholder="текст для пошуку ... "  formControlName="doc_text_search"  (change)="onChange('doc_text_search', $event)"/>                
+                        <!--<small class="p-error block" *ngIf="docs_search_Form.get('docs_text_search')?.invalid && docs_search_Form.get('docs_text_search')?.dirty">
+                            Поле не може бути пустим. Не менше 5 символів....
+                        </small> -->
+                    </div> 
+                    <div class="field align-items-center p-2">
+                        <label for="doc_date_start" class="block">Дата прийняття з</label>
+                        <p-calendar formControlName="doc_date_start" dateFormat="dd/mm/yy"  (onSelect)="onChange('doc_date_start',$event)"></p-calendar>
+                    </div>
+                    <div class="field align-items-center p-2">
+                        <label for="doc_date_end" class="block">Дата прийняття по</label>
+                        <p-calendar formControlName="doc_date_end" dateFormat="dd/mm/yy"  (onSelect)="onChange('doc_date_end',$event)"></p-calendar>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="field p-2">
+                        <label for="doc_typ" class="block">Тип документа</label>
+                        <p-dropdown
+                            [options]="documentType" formControlName="doc_typ"  (onChange)="onChange('doc_typ',$event)"> 
+                        </p-dropdown>  
+                    </div>
+                    <div class="field p-2">
+                        <label for="doc_num" class="block">Номер</label>
+                        <input type="text" pInputText placeholder="Номер документу"  formControlName="doc_num" (change)="onChange('doc_num',$event)"/>
+                    </div> 
+                    <div class="field p-2">
+                        <p-button label="Пошук" type="submit" icon="pi pi-search" class="p-button-sm pl-2" ></p-button>
+                    </div>
+                </div>
+              <!--<div class="flex flex-row flex-row-reverse">
+                    <div>
+                        <p-button [disabled]="docs_search_Form.invalid" label="Пошук" type="submit" icon="pi pi-search" class="p-button-sm pl-2" ></p-button>      
+                        <p-button label="Пошук" type="submit" icon="pi pi-search" class="p-button-sm pl-2" ></p-button>        
+                    </div>
+                </div>-->
+            </form>
+        </div>    
+        <p-messages></p-messages>                 
+</section>

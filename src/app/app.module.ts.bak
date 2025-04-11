@@ -1,0 +1,89 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MenubarModule } from 'primeng/menubar'; 
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { PaginatorModule } from 'primeng/paginator'; 
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
+import { DataViewModule } from 'primeng/dataview';
+import { TreeModule } from 'primeng/tree'; 
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { DialogModule } from 'primeng/dialog';
+import { CaptchaModule } from 'primeng/captcha'; 
+ 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ListPagesComponent } from './components/list-pages/list-pages.component';
+import { ListDocsComponent } from './components/list-docs/list-docs.component';
+import { ListPhotosComponent } from './components/list-photos/list-photos.component';
+import { MenubarComponent } from './components/menubar/menubar.component';
+import { PanelmenuComponent } from './components/panelmenu/panelmenu.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
+import { SafeHtmlPipe } from '../app/pipes/sanitized-html.pipe';
+import { TreeComponent } from './components/tree/tree.component';
+import { PageComponent } from './components/page/page.component';
+import { MainComponent } from './components/main/main.component';
+import { ContentComponent } from './components/content/content.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BannerComponent,
+    HeaderComponent,
+    FooterComponent,
+    ListPagesComponent,
+    ListDocsComponent,
+    ListPhotosComponent,
+    MenubarComponent,
+    PanelmenuComponent,
+    BreadcrumbComponent,
+    CarouselComponent,
+    TreeComponent,
+    PageComponent,
+    MainComponent,
+    ContentComponent,
+    NotFoundComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    MenubarModule,
+    PanelMenuModule,
+    CarouselModule,
+    ButtonModule,
+    TableModule,
+    BreadcrumbModule,
+    PaginatorModule,
+    CalendarModule,
+    InputTextModule,
+    DataViewModule,
+    TreeModule,
+    RadioButtonModule,
+    DialogModule,
+    CaptchaModule
+  ], 
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

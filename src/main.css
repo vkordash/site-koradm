@@ -1,0 +1,26 @@
+
+.main-section-title {
+    background-color: #808080;
+    padding: 1px;
+    margin: 2px;
+}    
+
+.main-title-text {
+    text-align: center;      
+}
+
+.main-title-text a {
+    text-decoration: none;
+    color: white;  
+}
+
+.main-search {
+    background-color: #808080;
+    margin: 0 auto; 
+    width: 100%;  
+}
+
+
+.main-section-form {
+    justify-content: center;
+}

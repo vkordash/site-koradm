@@ -1,0 +1,102 @@
+<p-blockUI [blocked]="Block_Hide"></p-blockUI>
+
+    <p-tabView styleClass="user-form" class="flex justify-content-center">
+        <p-tabPanel header="По публікаціях"> 
+            <form [formGroup]="pub_search_Form" (ngSubmit)="new_search(1)" novalidate> 
+                <h2>Пошук по сайту</h2>
+                <div class="flex flex-row">
+                    <div class="field">
+                        <label for="pub_text_search" class="block">Ключові слова у назві або тексті</label>
+                        <input type="text" pInputText placeholder="текст для пошуку ... "  formControlName="pub_text_search" (change)="onChange('pub_text_search', $event)"/>
+                        <small class="p-error block" *ngIf="pub_search_Form.get('pub_text_search')?.invalid && pub_search_Form.get('pub_text_search')?.dirty">
+                            Поле не може бути пустим. Не менше 5 символів....
+                        </small>
+                    </div>
+                    <div class="field align-items-center align-content-end">
+                        <p-button label="Пошук" type="submit" icon="pi pi-search" class="p-button-sm pl-2" ></p-button>        
+                    </div>
+                </div>                  
+            </form>
+        </p-tabPanel> 
+        <p-tabPanel header="По документах">
+            <h2>Пошук нормативно-правових актів</h2>
+            <form [formGroup]="docs_search_Form" (ngSubmit)="new_search(2)" novalidate> 
+                <div class="flex flex-row">
+                    <div class="field align-items-center p-2 ">
+                        <label for="doc_text_search" class="block">Ключові слова у назві або тексті</label>
+                        <input type="text" pInputText placeholder="текст для пошуку ... "  formControlName="doc_text_search"  (change)="onChange('doc_text_search', $event)"/>                
+                        <!--<small class="p-error block" *ngIf="docs_search_Form.get('docs_text_search')?.invalid && docs_search_Form.get('docs_text_search')?.dirty">
+                            Поле не може бути пустим. Не менше 5 символів....
+                        </small> -->
+                    </div> 
+                    <div class="field align-items-center p-2">
+                        <label for="doc_date_start" class="block">Дата прийняття з</label>
+                        <p-calendar formControlName="doc_date_start" dateFormat="dd/mm/yy"  (onSelect)="onChange('doc_date_start',$event)"></p-calendar>
+                    </div>
+                    <div class="field align-items-center p-2">
+                        <label for="doc_date_end" class="block">Дата прийняття по</label>
+                        <p-calendar formControlName="doc_date_end" dateFormat="dd/mm/yy"  (onSelect)="onChange('doc_date_end',$event)"></p-calendar>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="field p-2">
+                        <label for="doc_typ" class="block">Тип документа</label>
+                        <p-dropdown
+                            [options]="documentType" formControlName="doc_typ"  (onChange)="onChange('doc_typ',$event)"> 
+                        </p-dropdown>  
+                    </div>
+                    <div class="field p-2">
+                        <label for="doc_num" class="block">Номер</label>
+                        <input type="text" pInputText placeholder="Номер документу"  formControlName="doc_num" (change)="onChange('doc_num',$event)"/>
+                    </div> 
+                </div>
+                <div class="flex flex-row flex-row-reverse">
+                    <div>
+                        <p-button [disabled]="docs_search_Form.invalid" label="Пошук" type="submit" icon="pi pi-search" class="p-button-sm pl-2" ></p-button>        
+                    </div>
+                </div>            
+            </form>
+        </p-tabPanel>       
+    </p-tabView>
+
+    <div *ngIf="typSearch === 1" class="main-news-container  p-3">
+        <div class="item_grid item-news-list border-round-2xl surface-0 surface-hover" *ngFor="let itemNews of ListPages;" (click) = "set_page(itemNews.id, itemNews.id_component)">
+            <div class="p-3 align-items-center text-blue-500 ">{{itemNews.title}}</div>
+            <div class="gray-900 text-xs date-news">{{itemNews.date | date: 'dd/MM/yyyy'}}</div>
+            <div *ngIf="itemNews.photo != null"  class="item-news-list-img">           
+            <img src="{{itemNews.photo}}" class="image_title_news" alt="Image" >
+            </div>
+            <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="itemNews.head"></span></div>        
+            <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="itemNews.text"></span></div>        
+        </div>   
+    </div>
+
+    <div *ngIf="typSearch === 2" class="main-news-container  p-3">
+        <p-table [value]="ListDocs"  [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"  
+                    styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}"  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Номер</th>
+                    <th>Дата</th>
+                    <th>Назва документу</th>                
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td>{{ item.rn }}</td>
+                    <td>{{ item.date | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ item.name }}</td>                
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div  *ngIf="typSearch>0">
+        <p-paginator (onPageChange)="onPageChange($event)" 
+            [first]="first"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [rowsPerPageOptions]="[12, 24, 36]">
+        </p-paginator>
+    </div>
+ 

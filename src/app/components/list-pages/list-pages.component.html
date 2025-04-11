@@ -1,0 +1,24 @@
+<app-breadcrumb></app-breadcrumb>   
+<div class="main-header bg-green-100">
+    <h2 class='main-header-title'>{{NameMenu}}</h2>    
+</div>
+
+<div class="main-news-container  p-3">
+    <div class="item_grid item-news-list border-round-2xl surface-0 surface-hover" *ngFor="let item of listNews;" (click) = "set_page(item.id)">
+        <div class="p-3 align-items-center text-blue-500 ">{{item.title}}</div>
+        <div class="gray-900 text-xs date-news">{{item.date | date: 'dd/MM/yyyy'}}</div>
+        <div *ngIf="item.photo != null"  class="item-news-list-img">           
+           <img src="{{item.photo}}" class="image_title_news" alt="Image" >
+        </div>
+        <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="item.head"></span></div>        
+    </div>   
+</div>
+
+
+
+<p-paginator (onPageChange)="onPageChange($event)" 
+    [first]="first"
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="[12, 24, 36]">
+</p-paginator>

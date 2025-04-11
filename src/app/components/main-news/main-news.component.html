@@ -1,0 +1,33 @@
+
+<section class="main-news">
+    <div class="main-new-section">
+        
+        <div class="main-section-title">
+            <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+        </div> 
+        
+        <div class="main-news-container block">
+            <!--<div class="item_grid item-news-list border-round-2xl surface-0 surface-hover" *ngFor="let itemNews of listNews;" (click) = "set_page(itemNews.id)">
+                <div class="p-3 align-items-center text-blue-500 "  [innerHTML]="itemNews.title"></div>
+                <div class="gray-900 text-xs date-news">{{itemNews.date | date: 'dd/MM/yyyy'}}</div>
+                <div *ngIf="itemNews.photo != null"  class="item-news-list-img">           
+                <img src="{{itemNews.photo}}" class="image_title_news" alt="Image" >
+                </div>
+                <div class="gray-900 text-xs date-news" [innerHTML]="itemNews.text"></div>
+                <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="itemNews.head"></span></div>        
+            </div>   -->
+            <div class="main-news-article" *ngFor="let itemNews of listNews;" (click) = "set_page(itemNews.id)">
+                <article>
+                    <div class="article-title"  [innerHTML]="itemNews.title"></div>
+                    <div class="article-head"  [innerHTML]="itemNews.head"></div>
+                    <div *ngIf="itemNews.photo != null"  class="item-news-list-img">
+                        <img src="{{itemNews.photo}}" class="image_title_news" alt="Image" >
+                    </div>               
+                    
+                    <div class="article-text" [innerHTML]="itemNews.text"></div>
+                    <div class="article-date" [innerHTML]="itemNews.date | date: 'dd/MM/yyyy'"></div>
+                </article>            
+            </div>        
+        </div> 
+    </div>   
+</section>

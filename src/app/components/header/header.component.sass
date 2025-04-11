@@ -1,0 +1,106 @@
+@import 'primeflex/primeflex.scss'
+$font-family: 'Roboto', sans-serif
+
+.header-container    
+    height: 150px
+    display: grid
+    grid-template-columns: 2fr 5fr 2fr
+    color: blue
+    background: radial-gradient(425.02px at 50% 50%, #104D82 0%, #234161 100%) 
+    a
+        text-decoration: none
+
+.img-gerb
+    width: 5.25rem
+    height: auto
+
+.header-col1 
+    flex: 0.2
+    padding: 20px
+    margin-left: 20px
+    box-sizing: border-box
+    color: white
+    display: block
+    position: relative
+    padding: 10px 0 10px 0
+    text-decoration: none  
+
+.icon
+    position: absolute
+    left: 0
+    top: 20px
+    width: 7px
+    height: 40px
+    background-color: #2669e3
+    border: 1px solid
+
+.icon::before
+    content: ""
+    position: absolute
+    left: 0
+    bottom: 0
+    display: block
+    width: 7px
+    height: 20px
+    background-color: #ffe358
+
+
+.main-logo-text 
+    color: #fff
+    font-family: $font-family
+    font-weight: 600
+    padding-left: 10px
+    font-size: 110%
+    line-height: 10px
+    height: 20px
+
+
+.light
+    color: #aab3c6
+    font-family: $font-family
+    font-weight: 400
+    font-size: 70%
+    line-height: 2px
+    height: 20px
+    margin-top: 5px
+
+
+.gerb-ua
+    margin: 0 auto
+    width: 30px
+    height: 50px
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    background-image: url ('../../assets/images/gerb-ua.svg')
+
+
+.text-logo-1
+    letter-spacing: 3px
+    font-size: 1.1em
+    vertical-align: middle
+    font-weight: 600
+    text-transform: uppercase
+    color: #FFF
+    font-family: 'Oswald', sans-serif
+    margin: 0 auto
+    text-align: center
+
+.text-logo-2
+    text-transform: uppercase
+    color: #aab3c6
+    font-size: 0.8125em
+    letter-spacing: 0.1875rem
+    font-family: 'Oswald', sans-serif
+    margin: 0 auto
+    text-align: center
+
+.header-eye > a
+    color: #fff
+
+@media (max-width: 960px)
+    .header-container   
+        display: grid 
+        grid-template-columns: 1fr                      
+        height: auto
+        

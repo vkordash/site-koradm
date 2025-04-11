@@ -1,0 +1,113 @@
+<p-card  styleClass="user-form"  class="flex justify-content-center">
+    <form [formGroup]="userForm" (ngSubmit)="addUser()" novalidate>
+      <div class="field">
+        <label for="typ_query" class="block">Тип запитувача</label>
+        <p-dropdown id="typ_query" formControlName="typ_query" [options]="QTypes" [(ngModel)]="selectedQType" optionLabel="name" class="w-full md:w-56" (onChange)="onChange($event)"></p-dropdown>
+      </div>
+
+      <div  *ngIf="selectedQType._val==1" >
+        <div class="field">
+          <label for="firstName" class="block">Прізвище, ім'я, по батькові запитувача</label>
+          <input type="text" pInputText placeholder="Прізвище, ім'я, по батькові запитувача" formControlName="firstName" />
+          <small class="p-error block" *ngIf="
+              userForm.get('firstName')?.invalid && userForm.get('firstName')?.dirty
+            ">
+            Прізвище, ім'я запитувача є обов'язковим!</small>
+        </div>
+      </div>
+      
+      <div  *ngIf="selectedQType._val==2" >
+        <div class="field">
+          <label for="firstName" class="block">Прізвище, ім'я, по батькові представника запитувача</label>
+          <input type="text" pInputText placeholder="First Name" formControlName="firstName" />
+          <small class="p-error block" *ngIf="
+              userForm.get('firstName')?.invalid && userForm.get('firstName')?.dirty
+            ">
+            Прізвище, ім'я, по батькові представника запитувача є обов'язковим</small>
+        </div>        
+        <div class="field">
+          <label for="lastName" class="block">Найменування юридичної особи</label>
+          <input type="text" pInputText placeholder="Last Name" formControlName="lastName" />
+          <small class="p-error block" *ngIf="
+              userForm.get('firstName')?.invalid && userForm.get('firstName')?.dirty
+            ">
+            Найменування юридичної особи є обов'язковим!</small>
+        </div>    
+        <div class="field">
+          <label for="lastName" class="block">Посада</label>
+          <input type="text" pInputText placeholder="Last Name" formControlName="lastName" />
+          <small class="p-error block" *ngIf="
+              userForm.get('firstName')?.invalid && userForm.get('firstName')?.dirty
+            ">
+            Посада є обов'язковою!</small>
+        </div>
+      </div>
+      
+      <div  *ngIf="selectedQType._val==3" >
+        <div class="field">
+          <label for="firstName" class="block">Прізвище, ім`я та по батькові керівника (представника керівника) запитувача</label>
+          <input type="text" pInputText placeholder="First Name" formControlName="firstName" />
+          <small class="p-error block" *ngIf="
+              userForm.get('firstName')?.invalid && userForm.get('firstName')?.dirty
+            ">
+            Прізвище, ім'я запитувача є обов'язковим</small>
+        </div>        
+        <div class="field">
+          <label for="lastName" class="block">Найменування об`еднання громодян без статуса юридичної особи</label>
+          <input type="text" pInputText placeholder="Last Name" formControlName="lastName" />
+        </div>    
+        <div class="field">
+          <label for="lastName" class="block">Посада</label>
+          <input type="text" pInputText placeholder="Last Name" formControlName="lastName" />
+        </div>
+      </div>
+        
+      
+      <!--
+      <div class="field">
+        <label for="q_address" class="block">Поштова адреса запитувача</label>
+        <input type="text" pInputText placeholder="Last Name" formControlName="q_address" />
+        <small class="p-error block" *ngIf="
+            userForm.get('q_address')?.invalid && userForm.get('q_address')?.dirty
+          ">Поле є обовязковим для заповнення!</small>
+      </div>
+-->
+      <div class="field">
+        <label for="q_phone" class="block">Номер телефону запитувача</label>
+        <input type="text" pInputText placeholder="Номер телефону запитувача" formControlName="q_phone" />
+        <small class="p-error block" *ngIf="
+            userForm.get('q_phone')?.invalid && userForm.get('q_phone')?.dirty
+          ">Поле є обовязковим для заповнення!</small>
+      </div>
+     
+      <div class="field">
+        <label for="q_email" class="block">Електронна пошта</label>
+        <input type="text" pInputText placeholder="Електронна пошта" formControlName="q_email" />
+        <small class="p-error block" *ngIf="
+            userForm.get('q_email')?.invalid && userForm.get('q_email')?.dirty
+          ">Поле є обовязковим для заповнення!</small>
+      </div>
+   
+      <div class="field">
+        <label for="q_document" class="block">Вид, назва, реквізіти, зміст документа що запитується</label>
+        <textarea pTextarea formControlName="q_document" rows="5"  placeholder="Вид, назва, реквізіти, зміст документа що запитується" ></textarea>
+        
+        <small class="p-error block" *ngIf="
+            userForm.get('q_document')?.invalid && userForm.get('q_document')?.dirty
+          ">Поле є обовязковим для заповнення!</small>
+      </div>
+    
+      <div class="field">
+        <label for="q_text" class="block">Загальний опис інформації,що запитується</label>
+        <textarea pTextarea formControlName="q_text" rows="5"  placeholder="Загальний опис інформації,що запитується" ></textarea>
+        
+        <small class="p-error block" *ngIf="
+            userForm.get('q_text')?.invalid && userForm.get('q_text')?.dirty
+          ">Поле є обовязковим для заповнення!</small>
+      </div>
+      <div class="field">
+        <p-captcha siteKey="YOUR_SITE_KEY" (onResponse)="showResponse($event)"></p-captcha>
+        <button pButton type="submit" label="Submit" [disabled]="userForm.invalid"></button>
+      </div>      
+    </form>
+  </p-card>

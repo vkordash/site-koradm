@@ -1,0 +1,71 @@
+
+<p-messages [(value)]="gfg" [enableService]="false"></p-messages>
+<p-card styleClass="user-form" class="flex justify-content-center"  header="Форма електронного звернення" >
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      
+      <div class="field">
+            <label for="date" class="block">Дата подання звернення</label>
+            <input type="text" pInputText readonly="readonly" placeholder="Дата подання звернення" formControlName="date" />            
+      </div>
+        
+      <div class="field">
+        <label for="name" class="block">Прізвище, ім'я, по батькові  заявника</label>
+        <input 
+          type="text" 
+          pInputText 
+          placeholder="Введіть своє прізвище, ім'я, по батькові"
+          formControlName="name" 
+          [ngClass]="{'ng-ivalid ng-dirty' : submitted  && f['name'].errors}" 
+        />
+          <small class="p-error block" *ngIf="submitted && userForm.get('name')?.invalid ">
+            Прізвище, ім'я, по батькові є обовязкове! Мінімальна довжина 10 символів!
+          </small>          
+      </div>
+
+      <div class="field">
+        <label for="_adress" class="block">Поштова адреса заявника</label>
+        <input
+          type="text"
+          pInputText
+          placeholder="Введіть свою поштова адресу"
+          formControlName="adress" 
+          [ngClass]="{'ng-invalid ng-dirty' : submitted && f['adress'].errors}" 
+        />
+        <small class="p-error block" *ngIf="submitted && userForm.get('adress')?.invalid ">
+          Місце проживання є обовязкове! Мінімальна довжина 10 символів!
+        </small>             
+      </div>
+  
+      <div class="field">
+        <label for="email" class="block">Електронна пошта заявника</label>
+        <input
+          type="text"
+          pInputText
+          placeholder="Введіть свою електронну пошта"
+          formControlName="email"
+          [ngClass]="{'ng-invalid ng-dirty' : submitted && f['email'].errors}" 
+        />
+        <small class="p-error block" *ngIf="submitted && userForm.get('email')?.invalid ">
+          Введіть правильну адресу електронної пошта!
+        </small>          
+      </div>
+      <div class="field">
+        <label for="_text" class="block">Зміст звернення</label>
+        <textarea 
+          pTextarea
+          formControlName="text"
+          rows="5"
+          placeholder="Опишіть суть питання електронного звернення"
+          [ngClass]="{'ng-invalid ng-dirty' : submitted && f['text'].errors}"
+        ></textarea>
+        <small class="p-error block" *ngIf="submitted && userForm.get('text')?.invalid ">
+          Зміст звернення є обовязковим! Довжина не менше 20 символів!
+        </small>   
+      </div>
+      <div class="field">
+        <p-captcha siteKey="YOUR_SITE_KEY" (onResponse)="showResponse($event)" ></p-captcha>
+        <button pButton type="submit" label="Submit"></button>
+      </div>      
+    </form>
+  </p-card>
+  

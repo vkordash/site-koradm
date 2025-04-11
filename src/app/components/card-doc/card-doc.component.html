@@ -1,0 +1,56 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="p-3">
+    <div class="m-4">
+        <p-button label="Повернутись" (click) = "backHistory()" ></p-button>
+    </div>
+    <app-chips></app-chips>
+    <div class="page p-3 w-full">
+        <div [innerHTML]="card.dt_create | date:'M/d/yy'"> </div>    
+        <div [innerHTML]="card.name"> </div>       
+        
+        <div class="flex flex-column gap-2 mt-2">
+            <label for="src">Джерело інформації</label>
+            <input pInputText id="src" aria-describedby="username-help" [(ngModel)]="card.src"   [disabled]="true"/>
+        </div>
+        <div class="flex flex-column gap-2 mt-2">
+            <label for="sector">Галузь</label>
+            <input pInputText id="sector" aria-describedby="username-help" [(ngModel)]="card.sector"   [disabled]="true"/>  
+        </div>
+        <div class="flex flex-column gap-2 mt-2">
+            <label for="keywords">Kлючові слова</label>
+            <input pInputText id="keywords" aria-describedby="username-help" [(ngModel)]="card.keywords"   [disabled]="true"/>
+        </div>
+        <div class="flex flex-column gap-2">
+            <label for="media">Тип, носій</label>
+            <input pInputText id="media" aria-describedby="username-help" [(ngModel)]="card.media"   [disabled]="true"/>   
+        </div>
+        <div class="flex flex-column gap-2">
+            <label for="media">Тип, носій</label>
+            <input pInputText id="media" aria-describedby="username-help" [(ngModel)]="card.place"   [disabled]="true"/>   
+        </div>
+    </div> 
+    <div class="page p-3 w-full">
+        <div *ngFor="let item of docs;">
+            <!--<a [routerLink]="[routerLink]" [queryParams]='{"id":item.id}' [innerHTML]="item.memo"></a> -->
+            <br>
+            <a href="{{routerLink}}&id={{item.id}}" target="_blank">{{item.memo}}</a>
+            <a href="./only-office?id={{item.id}}" target="_blank"><i class="pi pi-eye" style="color: green"></i></a>
+        </div> 
+    </div>
+</div>
+
+
+<p-dialog [(visible)]="visible" [style]="{width: '95vw', height: '95vh'}">
+    <div *ngif(oo)>
+        <document-editor 
+            id="docxForCommeвадлпо вадлповадо адвлшїхїхї'їїівапхівs" 
+            documentServerUrl="http://192.168.77.253:8080"
+            [config]="config"
+            [events_onDocumentReady]="onDocumentReady"
+            [o
+            height="100%"
+            width="100%"
+            >
+        </document-editor>
+    </div>
+  </p-dialog>

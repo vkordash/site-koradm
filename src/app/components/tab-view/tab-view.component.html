@@ -1,0 +1,12 @@
+<h2>{{ Menu.name }}</h2>
+<p-tabView>
+    <p-tabPanel *ngFor="let item of SubMenu" header="{{ item.name }}">
+        <ul>
+            <li *ngFor="let sub_item of item.children">
+                <a *ngIf="sub_item.url !== ''"  routerLink="{{sub_item.url}}" [queryParams]="{'id':sub_item.id}">{{ sub_item.name }}</a>                
+                <!-- <a *ngIf="sub_item.url === ''" [routerLink]="sub_item.routerLink" [queryParams]="sub_item.queryParams">{{ item.name }}</a>-->
+            </li> 
+        </ul>        
+        
+    </p-tabPanel>
+</p-tabView>

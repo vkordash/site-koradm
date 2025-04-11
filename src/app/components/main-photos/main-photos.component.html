@@ -1,0 +1,10 @@
+<section class="main-photos-gallery">
+    <div class="main-section-title">
+        <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+    </div>    
+    <div class="container-main-photos-gallery flex flex-grow-1 flex-wrap">
+        <div *ngFor="let item of images" class="main-photos-gallery-item p-2 col-3 ">
+            <img class="main-photos-gallery-img" [src]="item.src" title="item.title"  alt="item.alt" />
+        </div>
+    </div>    
+</section>

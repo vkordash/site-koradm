@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -78,6 +78,14 @@ import { MainMediaComponent } from './components/main-media/main-media.component
 import { VirtReceptionComponent } from './components/virt-reception/virt-reception.component';
 import { PubQueryComponent } from './components/pub-query/pub-query.component';
 import { IndexPhpComponent } from './components/index.php/index.php.component';
+
+import { AppConfigService } from './services/app-config.service';
+
+
+export function initializeApp(appConfig: AppConfigService) {
+  return () => appConfig.loadConfig();
+}
+
 
 @NgModule({
   declarations: [
@@ -159,7 +167,15 @@ import { IndexPhpComponent } from './components/index.php/index.php.component';
 exports: [
   SanitizedHtmlPipe
 ], 
-  providers: [],
+  providers: [
+    AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfigService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

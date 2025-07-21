@@ -34,7 +34,7 @@ export class CarouselComponent implements OnInit {
    convert (data:any[]) {
     console.log(data);
     return data.map(el => {
-      el.photo.src = this.url_site+el.photo.src.slice(2);
+      el.photo.src = this.url_site+el.photo.src;
       return el;
     });
    }

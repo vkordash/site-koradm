@@ -1,4 +1,4 @@
-<div class='bg-green-100 carousel'>
+<div class='bg-green-100 carousel w-10'>
     <p-carousel 
         [value]="carousel"  
         [numVisible]="3"  
@@ -12,10 +12,7 @@
                         <img src="{{item.photo.src}}" alt="{{item.photo.alt}}" title="{{item.photo.title}}" class="product-image" />
                     </div> 
                     <div> 
-                        <a [routerLink]="['/page']"  [queryParams]='{id: item.id}'>{{ item.head }}</a>
-                        <!--<a href="/page?id={{  }}" target="_blank">
-                            <h4 class="p-mb-1"> {{}} </h4>                     
-                        </a>-->
+                        <a [routerLink]="['/page']"  [queryParams]='{id: item.id}'>{{ item.head }}</a>                        
                     </div> 
                 </div> 
             </div> 

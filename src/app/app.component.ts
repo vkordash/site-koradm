@@ -4,6 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { GlobalVar } from './main-config';
 import { LocalService } from './services/local.service';
 import { Location } from '@angular/common';
+import { AppConfigService } from './services/app-config.service';
 
 import { PreferService } from 'src/app/services/prefer.service';
 
@@ -13,14 +14,14 @@ import { PreferService } from 'src/app/services/prefer.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'koradm';
+  title = 'Test site template';
  
   public banner_left_up = 20;
   public banner_right_up = 21;
   public banner_left_down = 22;
   public banner_right_down = 23;
-  public menu_top = 1;
-  public top_slider = 29932;
+  public menu_top = this.config.menu_top;
+  public top_slider = this.config.slider_top;
   public menu_left = 2;
   public menu_right = 3;
   public menu_mega = 5;
@@ -42,9 +43,9 @@ export class AppComponent {
   public id_video = 0;
   public id_slider_banners = 0;
 
-  public org_name = 'КОРЮКІВСЬКА РАЙОННА ДЕРЖАВНА АДМІНІСТРАЦІЯ';
+  public org_name = this.config.nameOrg;
 
-  id_site   = GlobalVar.id_site;  
+  id_site   = this.config.id_org;
   cols      : number = 1;  // кол-во колонок
   width_lc  : string = 'w-4'; // ширина левой колонки 
   width_mc  : string = 'w-8'; // ширина средней колонки  
@@ -52,7 +53,7 @@ export class AppComponent {
   isLoggedIn: boolean = true;
   
 
-  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer){}
+  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, public config: AppConfigService){}
 
   ngOnInit(): void {
     
@@ -128,6 +129,4 @@ export class AppComponent {
    // }) 
   }
 }
-
-
 

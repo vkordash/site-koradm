@@ -4,6 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { GlobalVar } from '../../main-config';
 import { LocalService } from '../../services/local.service';
 import { Location } from '@angular/common';
+import { AppConfigService } from '../../services/app-config.service';
 
 import { PreferService } from 'src/app/services/prefer.service';
 
@@ -19,7 +20,7 @@ export class MainComponent implements OnInit {
   public banner_left_down = 22;
   public banner_right_down = 23;
   public menu_top = 1;
-  public top_slider = 0;
+  public top_slider = this.config.slider_top;
   public menu_left = 2;
   public menu_right = 3;
   public menu_mega = 5;
@@ -41,8 +42,10 @@ export class MainComponent implements OnInit {
   public id_main_video = 0;
   public id_slider_banners = 0;
   public id_main_docs = 0;
+
+  public user_template =  2;
   
-  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer){}
+  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, private config : AppConfigService){}
 
 
   ngOnInit(): void {

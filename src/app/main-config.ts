@@ -5,12 +5,12 @@
 // 31265 Козелецький геріатричний пансіонат
 // 966 Економіка
 // 23 Корюківка
-import { SafeUrl } from "@angular/platform-browser";
+//import { SafeUrl } from "@angular/platform-browser";
 
 // 31289 Ніжинський дитячий будинок-інтернат
 
 //const id_org= 41747;
-const id_org= 23;
+const id_org= 2468;
 const IdMenu = 26617; //Горизонтальное меню
 export const oo_api = "http://10.0.0.239/web-apps/apps/api/documents/api.js";  //  тестовая
 // export const oo_api = "https://cg.gov.ua:444/web-apps/apps/api/documents/api.js";  // product
@@ -27,7 +27,7 @@ export const GlobalVar = Object.freeze({
 //    db_url     : 'https://cg.gov.ua:20021'        //  для продукта
 //    db_url     : 'http://localhost:3000'
 //    db_url     : 'http://192.168.77.10:3000'     
-    //db_url     : 'https://nodes.cg.gov.ua'     
-      db_url     : 'http://192.168.77.253:33333'     
+    db_url     : 'https://node-serv.cg.gov.ua'     
+    //  db_url     : 'http://192.168.77.253:33333'     
 
 });

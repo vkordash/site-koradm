@@ -43,4 +43,9 @@ export class AppConfigService {
   get id_last_news(): number {
     return this.config?.id_last_news;
   }
+
+  get site_template(): number {
+    return this.config?.custom_template;
+  }
+  
 }

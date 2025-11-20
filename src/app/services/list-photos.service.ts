@@ -9,7 +9,7 @@ import { GlobalVar } from '../main-config';
 })
 
 export class ListPhotosService {
-  private url = GlobalVar.serv_site;        //  url базы данных (без путей)
+  private url = GlobalVar.db_url_nest;        //  url базы данных (без путей)
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,6 +25,16 @@ export class ListPhotosService {
 
   getCnt(id : number): Observable<any> {    
     let x = this.http.get<any>(this.url+"/photo/cnt?id="+id);
+    return x;
+  }
+
+  getListAll(limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/photo/list-all?limit="+limit+"&offset="+offset);
+    return x;
+  }
+
+  getCntAll(): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/photo/cnt-all");
     return x;
   }
 

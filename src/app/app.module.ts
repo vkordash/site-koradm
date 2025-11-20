@@ -80,6 +80,8 @@ import { PubQueryComponent } from './components/pub-query/pub-query.component';
 import { IndexPhpComponent } from './components/index.php/index.php.component';
 
 import { AppConfigService } from './services/app-config.service';
+import { GalleriaComponent } from './components/galleria/galleria.component';
+import { MainGalleriaComponent } from './components/main-galleria/main-galleria.component';
 
 
 export function initializeApp(appConfig: AppConfigService) {
@@ -131,6 +133,8 @@ export function initializeApp(appConfig: AppConfigService) {
     VirtReceptionComponent,
     PubQueryComponent,
     IndexPhpComponent,
+    GalleriaComponent,
+    MainGalleriaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,16 @@
-<p-galleria 
-    [value]="images"
-    [showIndicators]="true" 
-    [showThumbnails]="false" 
-    [containerStyle]="{ 'max-width': '640px' }">
-    <ng-template pTemplate="item" let-item>
-        <img [src]="item.src" style="width: 100%; display: block;" />
-        
-    </ng-template>
-    <ng-template pTemplate="caption" let-item>
-        <h4 style="margin-bottom: .5rem; color: #ffffff;">
-            {{ item.title }}
-        </h4>
-        <p>{{ item.alt }}</p>
-    </ng-template>
-</p-galleria>
+<div class="main-header bg-green-100">
+    <h2 class='main-header-title'>Фотогалереї</h2>    
+</div>
+
+<div class="main-news-container  p-3">
+    <div class="item_grid item-news-list border-round-2xl surface-0 surface-hover" *ngFor="let item of images;" (click) = "set_page(item.id)">
+        <div class="p-3 align-items-center text-blue-500 ">{{item.name}}</div>
+        <div *ngIf="item.photo != null"  class="item-news-list-img">           
+           <img src="{{item.photo.src}}" class="image_title_news" alt="{{item.photo.alt}}" title="{{item.photo.title}}" width="30%">
+        </div>
+        <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="item.photo.title"></span></div>
+    </div>   
+</div>
 
 <p-paginator (onPageChange)="onPageChange($event)" 
     [first]="first"
@@ -21,3 +18,4 @@
     [totalRecords]="totalRecords"
     [rowsPerPageOptions]="[12, 24, 36]">
 </p-paginator>
+

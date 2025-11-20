@@ -17,6 +17,8 @@ import { VirtReceptionComponent } from './components/virt-reception/virt-recepti
 import { IndexPhpComponent } from './components/index.php/index.php.component';
 import { TabViewComponent } from './components/tab-view/tab-view.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { ListVideosComponent } from './components/list-videos/list-videos.component';
+import { GalleriaComponent } from './components/galleria/galleria.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,7 @@ const routes: Routes = [
   { path: 'page-one', component: PageOneComponent },  
   { path: 'list-pages', component: ListPagesComponent },
   { path: 'list-photos', component: ListPhotosComponent },
-  { path: 'list-docs', component: ListDocsComponent },
+  { path: 'list-videos', component: ListVideosComponent },
   { path: 'list-docs', component: ListDocsComponent },
   { path: 'tab-view', component: TabViewComponent},
   { path: 'accordion', component: AccordionComponent},
@@ -35,7 +37,7 @@ const routes: Routes = [
   //{ path: 'pub-equery', component: PubEqueryComponent },
   //{ path: 'confirm', component: ConfirmComponent },
   { path: 'only-office', component: OnlyofficeComponent },
-  //{ path: 'gallery', component: GalleryComponent },
+  { path: 'galleria', component: GalleriaComponent },
   { path: 'url-page', component: UrlPageComponent },
   //{ path: 'list-contents', component: ListContentsComponent },
   //{ path: 'form', component: FormComponent },

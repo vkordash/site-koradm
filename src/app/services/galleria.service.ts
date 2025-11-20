@@ -4,12 +4,12 @@ import { Observable, of } from 'rxjs';
 
 import { GlobalVar } from '../main-config';
 
+
 @Injectable({
   providedIn: 'root'
 })
+export class GalleriaService {
 
-export class ChipsService {
-  
   private url = GlobalVar.serv_site;        //  url базы данных (без путей)
 
   httpOptions = {
@@ -19,8 +19,14 @@ export class ChipsService {
   constructor(private http: HttpClient) {
   }
 
-  getChips(id : number, id_component : number): Observable<any> {
-    return this.http.get<any>(this.url+"/tags?id="+id+"&id_component="+id_component);
+  getData(id : number, limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/photo/list?id="+id+"&limit="+limit+"&offset="+offset);
+    return x;
   }
 
+  getCnt(id : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/photo/cnt?id="+id);
+    return x;
+  }
 }
+

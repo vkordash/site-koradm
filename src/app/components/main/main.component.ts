@@ -43,7 +43,7 @@ export class MainComponent implements OnInit {
   public id_slider_banners = 0;
   public id_main_docs = 0;
 
-  public user_template =  0;
+  public user_template =  2;
   
   constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, private config : AppConfigService){}
 

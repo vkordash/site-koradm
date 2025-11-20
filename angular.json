@@ -34,7 +34,7 @@
           },
           "configurations": {
             "production": {
-		          "baseHref": "/test/",
+		          "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",

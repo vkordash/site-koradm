@@ -1,3 +1,39 @@
+<section *ngIf="user_template == 0" class="main-section">
+     
+    <app-main-news *ngIf="id_last_news>0" [id]="id_last_news" [rows]="rows_last_news"></app-main-news>
+   <!-- <app-carousel *ngIf="top_slider>0" [id]="top_slider"></app-carousel>
+    
+    <div class="main-container flex">
+        <section class="last_news">
+            <app-main-news *ngIf="id_last_news>0" [id]="id_last_news" [rows]="rows_last_news"></app-main-news>
+        </section>                       
+        <aside class="main-asaid">           
+            <app-last-anons *ngIf="id_last_anons!=0" [id]="id_last_anons" [rows]="rows_last_anons"></app-last-anons>            
+            <app-last-docs *ngIf="id_last_docs>0" [id]="id_last_docs" [rows]="rows_last_docs"></app-last-docs>            
+        </aside>                    
+    </div>    -->
+
+
+    <!--    
+    <div class="main-container">
+        <app-main-search *ngIf="id_main_docs>0" [id]="id_main_docs" ></app-main-search>
+    </div> 
+    
+   
+    <div class="main-container">
+        <app-main-media *ngIf="id_main_photogallery>0" [id]="id_main_photogallery"></app-main-media>         
+    </div> -->
+
+    <div class="main-container">       
+        <app-main-photos *ngIf="id_main_photogallery>0" [id]="id_main_photogallery"></app-main-photos>          
+    </div>
+
+    <div class="main-container">       
+        <app-main-videos *ngIf="id_main_video>0" [id]="id_main_video"></app-main-videos>            
+    </div>
+</section>
+
+
 
 <section *ngIf="user_template == 1" class="main-section">
     <div class="main-container flex">

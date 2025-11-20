@@ -24,20 +24,20 @@ export class CarouselComponent implements OnInit {
   getSlider(id_site : number): void { 
       let s = this.CarouselService.getData(this.id)
         .subscribe (data => { 
-          data = this.convert(data); 
+         // data = this.convert(data); 
           this.carousel = [...data] ;
-          console.log(this.carousel);        
+        //  console.log(this.carousel);        
           s.unsubscribe();      
       });      
   }  
 
-   convert (data:any[]) {
+  /* convert (data:any[]) {
     console.log(data);
     return data.map(el => {
       el.photo.src = this.url_site+el.photo.src;
       return el;
     });
-   }
+   }*/
 
   pageChange(event:any) { 
     console.log(event);

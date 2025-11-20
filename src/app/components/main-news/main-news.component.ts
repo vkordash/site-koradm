@@ -68,12 +68,12 @@ export class MainNewsComponent implements OnInit {
    getData(id_menu : number, limit : number, offset : number): void {    
      let s = this.ListPagesService.getData(id_menu,limit,offset)
        .subscribe(data => {
-         //this.listNews = [...data];
+        this.listNews = [...data];
 
-        this.listNews = data.map(function(elem:any) {
+        /*this.listNews = data.map(function(elem:any) {
           elem.photo = 'http://mena.cg.gov.ua/'+elem.photo;
           return elem ;
-        });
+        });*/
         
          let YScrool = Number(this.LocalService.getData('list-pagesScroll.'+this.id_menu));
          window.scrollTo(0,YScrool);

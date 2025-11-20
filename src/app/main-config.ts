@@ -27,7 +27,9 @@ export const GlobalVar = Object.freeze({
 //    db_url     : 'https://cg.gov.ua:20021'        //  для продукта
 //    db_url     : 'http://localhost:3000'
 //    db_url     : 'http://192.168.77.10:3000'     
-    db_url     : 'https://node-serv.cg.gov.ua'     
-    //  db_url     : 'http://192.168.77.253:33333'     
-
+    // db_url     : 'https://node-serv.cg.gov.ua'     
+    db_url     : 'http://192.168.77.253:20022',     
+    db_url_nest: 'http://192.168.77.253:10101',
+    serv_site: 'https://serv-site.menarada.gov.ua',
+    nest: true     
 });

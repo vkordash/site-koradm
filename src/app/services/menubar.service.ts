@@ -9,7 +9,7 @@ import { GlobalVar } from '../main-config';
 })
 export class MenuBarService {
 
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  private url = GlobalVar.serv_site;  
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class MenuBarService {
   }
 
   getData(id : number): Observable<any[]> {
-    let x = this.http.get<any[]>(this.url+"/menubar?id="+id);     
+    let x = this.http.get<any[]>(this.url+"/menu/menubar?id="+id);     
     return x;
   }
 }

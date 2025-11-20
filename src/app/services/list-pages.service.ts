@@ -9,7 +9,8 @@ import { GlobalVar } from '../main-config';
 })
 
 export class ListPagesService {
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
+    
+  private url = GlobalVar.serv_site;        //  url базы данных (без путей)
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,12 +20,12 @@ export class ListPagesService {
   }
 
   getData(id : number, limit : number, offset : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listpages?id="+id+"&limit="+limit+"&offset="+offset);
+    let x = this.http.get<any>(this.url+"/page/list?id="+id+"&limit="+limit+"&offset="+offset);
     return x;
   }
 
   getCnt(id : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listpages/cnt?id="+id);
+    let x = this.http.get<any>(this.url+"/page/cnt?id="+id);
     return x;
   }
 

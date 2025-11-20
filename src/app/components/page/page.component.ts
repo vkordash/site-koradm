@@ -28,7 +28,8 @@ export class PageComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       console.log(params);
       this.id = params['id'];
-      this.tp = params['tp'];
+      this.tp = params['tp'] ? Number(params['tp']) : 1;
+      
       this.getPage();      
     });  
   }

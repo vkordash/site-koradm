@@ -10,14 +10,13 @@ import { GlobalVar } from '../main-config';
 })
 
 export class PreferService {
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
-
+  private url = GlobalVar.serv_site;    
+  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {  }
 
   getData(): Observable<any>{
     return this.http.get<any>(this.url+"/prefer");

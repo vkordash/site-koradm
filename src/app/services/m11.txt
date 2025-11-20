@@ -1,0 +1,126 @@
+
+
+       
+
+ getAccordion(id : number): Observable<any> {
+    return this.http.get<any>(this.url+"/menu/getAccordionMenu?id="+id);
+  }
+
+
+
+
+getData(id : string): Observable<number> {
+    return this.http.get<any>(this.url+"/header?name="+id);
+  }
+
+getBanner(id : number): Observable<string> {
+    return this.http.get<string>(this.url+"/banners?id_menu="+id);
+  }
+
+getSlideMenu(id : number): Observable<any> {
+    return this.http.get<any>(this.url+"/panelmenu?id="+id);
+  }
+
+getData(id : number): Observable<any[]> {
+    let x = this.http.get<any[]>(this.url+"/megamenu?id="+id);     
+    return x;
+  }
+
+ getPage(id : number, tp:number): Observable<any> {
+    return this.http.get<any>(this.url+"/page?id="+id+"&tp="+tp);
+  }
+
+ getData(id : number): Observable<any> {
+    let x = this.http.get<any>(this.url+"/menu?id="+id);     
+    return x;
+  }
+
+*************
+
+ getData(id : number, limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listpages?id="+id+"&limit="+limit+"&offset="+offset);
+    return x;
+  }
+
+  getCnt(id : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listpages/cnt?id="+id);
+    return x;
+  }
+
+  getLast(id : number, limit : number,): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listpages/last?id="+id+"&limit="+limit);
+    return x;
+  }
+
+
+*****************
+  getData(id : number, limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listanons?id="+id+"&limit="+limit+"&offset="+offset);
+    return x;
+  }
+
+  getCnt(id : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listanons/cnt?id="+id);
+    return x;
+  }
+
+  getLast(id : number, limit : number,): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listanons/last?id="+id+"&limit="+limit);
+    return x;
+  }
+
+*************************
+getData(id : number, limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listphotos?id="+id+"&limit="+limit+"&offset="+offset);
+    return x;
+  }
+
+  getCnt(id : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listphotos/cnt?id="+id);
+    return x;
+  }
+
+  getLast(id : number, limit : number,): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listphotos/last?id="+id+"&limit="+limit);
+    return x;
+  }
+
+********************
+
+ getData(id : number, limit : number, offset : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listvideos?id="+id+"&limit="+limit+"&offset="+offset);
+    return x;
+  }
+
+  getCnt(id : number): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listvideos/cnt?id="+id);
+    return x;
+  }
+
+  getLast(id : number, limit : number,): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/listvideos/last?id="+id+"&limit="+limit);
+    return x;
+  }
+
+************
+
+getData(id : number): Observable<MenuItem[]> {
+    return this.http.get<MenuItem[]>(this.url+"/breadcrumb/?id="+id);
+  }
+
+
+getChips(id : number, id_component : number): Observable<any> {
+    return this.http.get<any>(this.url+"/tags?id="+id+"&id_component="+id_component);
+  }
+
+
+
+getData(id : number): Observable<any> {
+    return this.http.get<any>(this.url+"/carousel?id="+id);
+  }
+
+
+
+getContent(id : number): Observable<any> {
+    return this.http.get<any>(this.url+"/menu/submenu?id="+id);
+  }

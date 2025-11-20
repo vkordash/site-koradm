@@ -10,4 +10,7 @@
         <span class="page-text" [innerHTML]="page.text | sanitizedHtml"> </span>
         <span [innerHTML]="page.title"> </span>    
     </div>
+    <div class="m-4 " *ngIf="page.text.trim().length>1">
+        <p-button *ngIf="tp!=1" label="Повернутись" (click) = "backHistory()" ></p-button>
+    </div>
 </div>

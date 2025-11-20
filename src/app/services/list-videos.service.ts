@@ -19,17 +19,17 @@ export class ListVideosService {
   }
 
   getData(id : number, limit : number, offset : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listvideos?id="+id+"&limit="+limit+"&offset="+offset);
+    let x = this.http.get<any>(this.url+"/video/list?id="+id+"&limit="+limit+"&offset="+offset);
     return x;
   }
 
   getCnt(id : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listvideos/cnt?id="+id);
+    let x = this.http.get<any>(this.url+"/video/cnt?id="+id);
     return x;
   }
 
   getLast(id : number, limit : number,): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listvideos/last?id="+id+"&limit="+limit);
+    let x = this.http.get<any>(this.url+"/video/last?id="+id+"&limit="+limit);
     return x;
   }
 }

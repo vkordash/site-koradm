@@ -149,10 +149,10 @@ body
 .p-tree .p-tree-container .p-treenode .p-treenode-content
     padding: 0.5rem
 
-.page
+/*.page
     img 
         width:90%
-        margin: 0 auto
+        margin: 0 auto*/
 
 
 .user-form 
@@ -168,3 +168,16 @@ body
 .blind
   filter: grayscale(100%)
   transition: filter 0.3s ease-in-out
+
+.page-article img,
+.page-article a img 
+  max-width: 100%
+  height: auto
+  display: block
+  padding: 5px
+  border-radius: 8px
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
+  object-fit: contain
+  opacity: 1
+  transition: opacity 0.4s ease
+

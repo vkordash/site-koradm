@@ -9,15 +9,17 @@ import { Input } from '@angular/core';
 @Component({
   selector: 'app-main-photos',
   templateUrl: './main-photos.component.html',
-  styleUrls: ['./main-photos.component.sass']
+  styleUrls: ['./main-photos.component.scss']
 })
 export class MainPhotosComponent implements OnInit {
 
   images:  IPhoto[] = [];
   Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
  
-  @Input() rows : number = 4;
+  @Input() rows : number = 6;
   @Input() id : number=0;
+
+  public user_template = 0;
 
   constructor(private ListPhotosService : ListPhotosService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 
 

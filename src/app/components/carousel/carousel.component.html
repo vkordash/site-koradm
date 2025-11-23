@@ -1,4 +1,22 @@
-<div class='bg-green-100 carousel w-10'>
+<p-carousel
+ *ngIf="user_template == 0"
+  [value]="carousel"
+  [numVisible]="1"
+  [numScroll]="1"
+  [circular]="true"
+  [autoplayInterval]="5000"
+  [showIndicators]="false"
+  class="main-carousel"
+>
+  <ng-template pTemplate="item" let-item>
+    <div class="carousel-item">
+      <img [src]="item.photo.src" [alt]="item.photo.title">
+      <div class="carousel-caption">{{ item.head }}</div>
+    </div>
+  </ng-template>
+</p-carousel>
+
+<div  *ngIf="user_template > 0"class='bg-green-100 carousel w-10'>
     <p-carousel 
         [value]="carousel"  
         [numVisible]="3"  

@@ -1,0 +1,51 @@
+/* Контейнер с отступами */
+.videos-wrapper {
+  padding: 1.5rem !important;
+}
+
+/* Карточка */
+.video-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 26px rgba(0,0,0,0.15);
+  }
+}
+
+/* Адаптивный iframe 16:9 */
+.frame-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+/* Дата */
+.video-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0.8rem;
+}
+
+/* Короткий текст */
+.video-text {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  color: #333;
+}

@@ -7,13 +7,15 @@ import { GlobalVar } from '../../main-config';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.sass']
+  styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
 
   @Input() id : number =0;
   carousel: Carousel[] = []; 
   private url_site = GlobalVar.url_site;  
+
+  public user_template = 0;
   
   constructor(private CarouselService : CarouselService,private router: Router) { }
 
@@ -26,7 +28,7 @@ export class CarouselComponent implements OnInit {
         .subscribe (data => { 
          // data = this.convert(data); 
           this.carousel = [...data] ;
-        //  console.log(this.carousel);        
+          console.log(this.carousel);        
           s.unsubscribe();      
       });      
   }  

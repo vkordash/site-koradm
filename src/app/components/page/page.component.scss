@@ -1,0 +1,156 @@
+.page-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Заголовок и дата */
+.page-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1c1c1c;
+  }
+
+  .page-date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.3rem;
+  }
+}
+
+/* Левая колонка */
+.page-content {
+  
+  padding: 2rem;
+
+  .page-article {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 1rem 0;
+      display: block;   // чтобы убрать лишние пробелы под img
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 1.2rem;
+      margin-bottom: .6rem;
+      line-height: 1.3;
+      color: aqua;
+    }
+  }
+}
+
+
+.page-article p a img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* ================================
+   Оптимизация изображений в тексте
+   ================================ */
+/*
+.page-article {
+  
+  /*img {
+
+    /* Ограничиваем реальный видимый размер */
+    /*max-width: min(100%, 720px);   /* в обычном режиме картинки не шире 720px */
+   /* max-height: 480px;             /* ограничение по высоте */
+    
+    /*width: auto;                   /* пусть браузер сам подбирает ширину */
+   // height: auto;
+
+    /* Отступы вокруг */
+    /*margin: 1.5rem auto;
+    /*display: block;
+
+    /* Скругление углов */
+    /*border-radius: 8px;*/
+
+    /* Мягкая тень */
+    /*box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);*/
+
+    /* Ускорение рендера изображений */
+    /*image-rendering: auto;*/
+
+    /* Оптимизация масштабирования */
+   /* object-fit: contain;*/
+
+    /* Мягкое появление */
+  /*  opacity: 0;
+    transition: opacity 0.4s ease;*/
+ // }
+
+  /* Когда изображение загружено — делаем видимым */
+ /* img.loaded {
+    opacity: 1;
+  }*/
+
+  /* Если картинка находится внутри A */
+  /*a[data-lightbox] img {
+    cursor: zoom-in;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+  }*/
+
+  /* Ограничиваем размер тега A тоже */
+  /*a[data-lightbox] {
+    display: block;
+    max-width: min(100%, 720px);
+    margin: 1.5rem auto;
+    text-align: center;
+  }*/
+
+  /* Подпись под изображением */
+/*  figure {
+    text-align: center;
+    margin: 2rem 0;
+
+    figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  }*/
+//}
+
+/* Правая колонка */
+.page-aside {
+  padding: 1rem;
+}
+
+/* Скрытие aside на планшетах и мобильных */
+@media (max-width: 991px) {
+  .aside-hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/*
+.page-article {
+    p {
+        a {
+            img {
+            max-width: calc(100% - 20px); // не больше ширины родителя минус отступы
+            margin: 10px;                 // отступ от краёв родителя
+            height: auto;                 // сохраняет пропорции
+            display: block;               // чтобы margin работал как нужно
+            }
+        }
+    }
+}*/

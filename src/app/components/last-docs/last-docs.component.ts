@@ -23,6 +23,9 @@ export class LastDocsComponent implements OnInit {
   Menu : IMenu = {"name":"Останні документи","routerLink":"","queryParams":""} ;
   routerLink : string = "/card-doc";
 
+  public user_template = 0;
+ 
+  
   constructor(private ListDocsService : ListDocsService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 
 
   }

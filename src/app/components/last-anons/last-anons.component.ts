@@ -20,6 +20,8 @@ export class LastAnonsComponent implements OnInit {
   Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
   routerLink : string = "/page";
 
+  public user_template = 0;
+
   constructor(private ListAnonsService : ListAnonsService,   private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 
 
   }
@@ -35,7 +37,8 @@ export class LastAnonsComponent implements OnInit {
         .subscribe(data => {
           data.routerLink = '/'+data.routerlink;
           this.Menu = data;  
-        //  console.log(data); 
+          console.log('Анонси');
+          console.log(data); 
           s.unsubscribe();      
         });
     }   

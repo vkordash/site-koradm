@@ -1,4 +1,13 @@
-<section class="main-section-anons">
+<p-card *ngIf="user_template == 0" header="Анонси">
+  <ul class="anons-list">
+    <li *ngFor="let a of listdocs" class="anons-item">
+      <span>{{ a.text }}</span>
+      <span>{{ a.date | date:'dd.MM.yyyy' }}</span>
+    </li>
+  </ul>
+</p-card>
+
+<section *ngIf="user_template >0 " class="main-section-anons">
     <div class="main-section-title">
         <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
     </div> 

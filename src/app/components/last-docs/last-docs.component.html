@@ -1,4 +1,19 @@
-<section class="main-section-last-documents">
+<p-card header="Останні документи">
+  <ul class="docs-list">
+    <li *ngFor="let d of listdocs" class="docs-item">
+      <div>        
+        <div class="doc-type">Наказ</div>
+        <div class="doc-title">{{ d.name }}</div>
+      </div>
+      <div>
+        <div>№ {{ d.rn }} від {{ d.date | date:'dd.MM.yyyy' }}</div>
+      </div>
+    </li>
+  </ul>
+</p-card>
+
+
+<section *ngIf="user_template > 0" class="main-section-last-documents">
     <div class="main-section-title">
         <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
     </div> 

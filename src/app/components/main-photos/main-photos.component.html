@@ -1,4 +1,28 @@
-<section class="main-photos-gallery">
+<div  *ngIf="user_template == 0" class="images-wrapper p-3">
+    <div class="main-section-title">
+        <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+    </div> 
+  <div class="grid">
+
+    <div class="col-12 md:col-4" *ngFor="let item of images">
+      <div class="img-card">
+
+        <div class="img-container">
+          <img [src]="item.src" [alt]="item.title || 'image'">
+        </div>
+
+        <h3 class="img-title" *ngIf="item.title">{{ item.title }}</h3>
+        <!--<p class="img-date">{{ item.date }}</p>
+        <p class="img-text">{{ item.text }}</p>-->
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<section  *ngIf="user_template > 0" class="main-photos-gallery">
     <div class="main-section-title">
         <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
     </div>    

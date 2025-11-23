@@ -11,7 +11,7 @@ import { PreferService } from 'src/app/services/prefer.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
 
@@ -27,14 +27,14 @@ export class MainComponent implements OnInit {
   public anons_id = 7;
   public videos_id = 8;
 
-  public id_last_docs=0;
+  public id_last_docs=40958;
   public rows_last_docs = 6;
   
   public id_last_anons=7;
   public rows_last_anons = 6;
   
   public id_last_news=0;
-  public rows_last_news = 6;
+  public rows_last_news = 3;
 
   public id_last_photo=0;
   public rows_last_photo = 1;
@@ -42,8 +42,9 @@ export class MainComponent implements OnInit {
   public id_main_video = 0;
   public id_slider_banners = 0;
   public id_main_docs = 0;
+  public id_main_photos = 27071;
 
-  public user_template =  2;
+  public user_template = 0;
   
   constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, private config : AppConfigService){}
 

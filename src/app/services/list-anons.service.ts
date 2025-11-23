@@ -10,7 +10,7 @@ import { GlobalVar } from '../main-config';
 })
 export class ListAnonsService {
 
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  private url = GlobalVar.serv_site;        //  url базы данных (без путей)
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,7 +20,7 @@ export class ListAnonsService {
   }
 
   getData(id : number, limit : number, offset : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listanons?id="+id+"&limit="+limit+"&offset="+offset);
+    let x = this.http.get<any>(this.url+"/page/list?id="+id+"&limit="+limit+"&offset="+offset);
     return x;
   }
 
@@ -30,7 +30,7 @@ export class ListAnonsService {
   }
 
   getLast(id : number, limit : number,): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listanons/last?id="+id+"&limit="+limit);
+    let x = this.http.get<any>(this.url+"/page/list?id="+id+"&limit="+limit+"&offset=0");
     return x;
   }
 

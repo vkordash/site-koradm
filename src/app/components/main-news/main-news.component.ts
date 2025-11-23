@@ -12,7 +12,7 @@ import { IMenu } from 'src/app/interfaces/tree';
 @Component({
   selector: 'app-main-news',
   templateUrl: './main-news.component.html',
-  styleUrls: ['./main-news.component.sass']
+  styleUrls: ['./main-news.component.scss']
 })
 export class MainNewsComponent implements OnInit {
 
@@ -23,8 +23,9 @@ export class MainNewsComponent implements OnInit {
    NameMenu ?: string='';
  
    first    : number = 0;
-   @Input() rows : number = 12;
+   @Input() rows : number = 3;
    @Input() id : number=0;
+   @Input() _col: number=1;
    totalRecords : number = 0;
 
 
@@ -33,7 +34,7 @@ export class MainNewsComponent implements OnInit {
    Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
    routerLink : string = "/page";
  
- 
+   public user_template = 0;
  
    constructor(private LocalService: LocalService, private ListPagesService : ListPagesService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 
 
@@ -47,6 +48,7 @@ export class MainNewsComponent implements OnInit {
      }
      this.id_menu=this.id;
     this.getMenu();
+    if (this._col===2) this.first=this.rows;
     this.getData(this.id_menu,this.rows, this.first);              
    }
  
@@ -74,7 +76,10 @@ export class MainNewsComponent implements OnInit {
           elem.photo = 'http://mena.cg.gov.ua/'+elem.photo;
           return elem ;
         });*/
-        
+        /*const half = Math.ceil(this.listNews.length / 2);
+        this.newsColumn1 = this.newsColumn1.slice(0, half);
+        this.newsColumn2 = this.newsColumn2.slice(half);*/
+
          let YScrool = Number(this.LocalService.getData('list-pagesScroll.'+this.id_menu));
          window.scrollTo(0,YScrool);
          s.unsubscribe();        

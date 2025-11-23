@@ -1,5 +1,34 @@
-<app-breadcrumb></app-breadcrumb>
-<div class="p-3">
+<!--<app-breadcrumb></app-breadcrumb>-->
+
+<div *ngIf="user_template == 0" class="page-wrapper grid gap-0">
+
+  <!-- 📰 Левая колонка (контент страницы) -->
+  <div class="col-12 lg:col-8 md:col-8 p-p-3 page-content">
+    <div class="m-4 " *ngIf="page.text.trim().length>1">
+        <p-button *ngIf="tp!=1" label="Повернутись" (click) = "backHistory()" ></p-button>
+    </div>
+    <app-chips></app-chips>
+    <header class="page-header">
+      <h1 class="page-title">{{ page.head }}</h1>
+      <p class="page-date">{{ page.date | date:'dd.MM.yyyy' }}</p>
+    </header>
+    <div class="page-article" [innerHTML]="page.text"></div>
+    <div class="m-4 " *ngIf="page.text.trim().length>1">
+        <p-button *ngIf="tp!=1" label="Повернутись" (click) = "backHistory()" ></p-button>
+    </div>
+  </div>
+
+  <!-- 📚 Правая колонка (aside — анонсы + документы) -->
+  <div class="col-12 lg:col-4 md:col-4 p-p-3 page-aside aside-hide-on-mobile">
+    <app-last-anons *ngIf="id_last_anons!=0" [id]="id_last_anons" [rows]="rows_last_anons"></app-last-anons>
+    <app-last-docs *ngIf="id_last_docs>0" [id]="id_last_docs" [rows]="rows_last_docs"></app-last-docs>
+  </div>
+
+</div>
+
+<!--
+
+<div *ngIf="user_template > 0" class="p-3">
     <div class="m-4 " *ngIf="page.text.trim().length>1">
         <p-button *ngIf="tp!=1" label="Повернутись" (click) = "backHistory()" ></p-button>
     </div>
@@ -14,3 +43,4 @@
         <p-button *ngIf="tp!=1" label="Повернутись" (click) = "backHistory()" ></p-button>
     </div>
 </div>
+-->

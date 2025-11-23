@@ -11,7 +11,7 @@ import { SanitizedHtmlPipe } from '../../pipes/sanitized-html.pipe'
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrls: ['./page.component.sass']
+  styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
 
@@ -21,6 +21,13 @@ export class PageComponent implements OnInit {
   tp       : number = 0;   
   id_menu  : number = 0;
   main_page: boolean =  false; //признак главной страницы false - не главная, true - главная
+
+  public user_template = 0;
+
+  public id_last_anons=7;
+  public rows_last_anons = 6;
+  public id_last_docs=40958;
+  public rows_last_docs = 6;
 
   constructor(private pageService : PageService, private route: ActivatedRoute, private router: Router, private location: Location) { }
 

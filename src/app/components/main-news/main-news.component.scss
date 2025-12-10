@@ -16,3 +16,20 @@
   justify-content: space-between;
   margin-top: .5rem;
 } 
+
+.news-card {
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #f8f9fc;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+    }
+
+    // Чтобы hover не обрезался card-обёрткой
+    ::ng-deep .p-card {
+      background: transparent;
+      box-shadow: none;
+    }
+  }

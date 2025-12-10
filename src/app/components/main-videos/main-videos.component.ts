@@ -17,16 +17,21 @@ export class MainVideosComponent implements OnInit {
   ListVideos:  IVideo[] = [];
   Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
   @Input() rows : number = 3;
-  //@Input() id : number=0;
+  
+  @Input() params : {id:number; rows:number} ={id:0,rows:0};
+  
   id: number = 8;
 
   public user_template = 0;
+
+   
 
   constructor(private ListVideosService : ListVideosService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { 
 
   }
 
   ngOnInit(): void {
+    console.log(this.params);
     this.getMenu();
     this.getData(this.id,this.rows,0);
   }
@@ -55,15 +60,11 @@ export class MainVideosComponent implements OnInit {
       };
     });
   });
-    /*  .subscribe(data => {
-        console.log(data);
-        this.ListVideos = [...data];       
-      }); */     
   } 
 
   extractUrlFromIframe(html: string): string {
-    const match = html.match(/src="([^"]+)"/);
-  return match ? match[1] : '';
-}
+      const match = html.match(/src="([^"]+)"/);
+    return match ? match[1] : '';
+  }
 
 }

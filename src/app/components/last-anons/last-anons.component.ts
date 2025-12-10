@@ -9,7 +9,7 @@ import { IMenu } from 'src/app/interfaces/tree';
 @Component({
   selector: 'app-last-anons',
   templateUrl: './last-anons.component.html',
-  styleUrls: ['./last-anons.component.sass']
+  styleUrls: ['./last-anons.component.scss']
 })
 export class LastAnonsComponent implements OnInit {
 
@@ -52,4 +52,9 @@ export class LastAnonsComponent implements OnInit {
       });      
   }
 
+  set_page(id : number) 
+  {
+    window.scrollTo(0,0);
+    this.router.navigate(['/page'], {queryParams:{'id': id, 'tp': 0}} )     
+  }
 }

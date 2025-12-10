@@ -10,8 +10,8 @@
       </ng-template>
 
       <div class="news-body">
-        <h3 id="title-{{item.id}}" class="news-title">{{ item.head }}</h3>
-        <p class="news-short">{{ item.text }}</p>
+        <h3 id="title-{{item.id}}" class="news-title" [innerHTML]="item.head"></h3>
+        <p class="news-short" [innerHTML]="item.text"></p>
         <div class="news-meta">
           <small>{{ item.date | date:'dd.MM.yyyy' }}</small>
           <button pButton type="button" label="Читати" icon="pi pi-eye" class="p-button-text" (click) = "set_page(item.id)"></button>

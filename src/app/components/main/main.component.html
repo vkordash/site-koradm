@@ -37,13 +37,13 @@
 
     <aside class="col col-12">
         <app-last-anons *ngIf="id_last_anons!=0" [id]="id_last_anons" [rows]="rows_last_anons"></app-last-anons>            
-        <!--<app-last-docs *ngIf="id_last_docs>0" [id]="id_last_docs" [rows]="rows_last_docs"></app-last-docs>   -->
+        <app-last-docs *ngIf="id_last_docs>0" [id]="id_last_docs" [rows]="rows_last_docs"></app-last-docs>
         <!-- <app-last-docs *ngIf="id_last_news>0" [id]="id_last_newsdocs" [rows]="rows_last_news"></app-last-docs>   -->
     </aside>
 </div>
 
 <div class="main-container">       
-    <app-main-videos *ngIf="id_main_video>0" [id]="id_main_video"></app-main-videos>            
+    <app-main-videos *ngIf="id_main_video>0" [id]="id_main_video" [params]="params.main_videos"></app-main-videos>            
 </div>
 <div class="main-container">       
     <app-main-photos *ngIf="id_main_photos>0" [id]="id_main_photos"></app-main-photos>          

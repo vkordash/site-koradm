@@ -11,7 +11,7 @@ import { LocalService } from 'src/app/services/local.service';
 @Component({
   selector: 'app-list-pages',
   templateUrl: './list-pages.component.html',
-  styleUrls: ['./list-pages.component.sass']
+  styleUrls: ['./list-pages.component.scss']
 })
 export class ListPagesComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class ListPagesComponent implements OnInit {
   private querySubscription : Subscription | undefined; 
 
   
-
+public user_template = 0;
 
 
   constructor(private LocalService: LocalService, private ListPagesService : ListPagesService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 

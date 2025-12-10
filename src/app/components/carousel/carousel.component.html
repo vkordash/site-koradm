@@ -10,8 +10,14 @@
 >
   <ng-template pTemplate="item" let-item>
     <div class="carousel-item">
-      <img [src]="item.photo.src" [alt]="item.photo.title">
-      <div class="carousel-caption">{{ item.head }}</div>
+        <a 
+        [routerLink]="['/page']" 
+        [queryParams]="{ id: item.id, tp:0 }"
+        class="carousel-link"
+      >
+        <img [src]="item.photo.src" [alt]="item.photo.title">
+        </a>
+      <div class="carousel-caption"  [innerHTML]="item.head"></div>
     </div>
   </ng-template>
 </p-carousel>

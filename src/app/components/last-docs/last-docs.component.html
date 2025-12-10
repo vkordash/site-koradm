@@ -1,5 +1,26 @@
 <p-card header="Останні документи">
   <ul class="docs-list">
+    <li *ngFor="let d of listdocs" class="docs-item"  (click)=navigateToExternal(d.id_card)>
+      
+      <!-- 1 строка: тип документа (справа) -->
+      <div class="doc-type">{{ d.name_type || 'Документ' }}</div>
+
+      <!-- 2 строка: номер і дата -->
+      <div *ngIf="d.accepteddate" class="doc-info">
+        № {{ d.num }} від {{ d.accepteddate | date:'dd.MM.yyyy' }}
+      </div>
+
+      <!-- 3 строка: назва -->
+      <div class="doc-title">
+        {{ d.title }}
+      </div>
+
+    </li>
+  </ul>
+</p-card>
+
+<!--<p-card header="Останні документи">
+  <ul class="docs-list">
     <li *ngFor="let d of listdocs" class="docs-item">
       <div>        
         <div class="doc-type">Наказ</div>
@@ -10,8 +31,8 @@
       </div>
     </li>
   </ul>
-</p-card>
-
+</p-card>-->
+<!--
 
 <section *ngIf="user_template > 0" class="main-section-last-documents">
     <div class="main-section-title">
@@ -23,4 +44,4 @@
             <a [routerLink]="routerLink" [queryParams]='{"id":item.id}'>{{ item.name }}</a>  
         </div>  
     </div>       
-</section>
+</section>-->

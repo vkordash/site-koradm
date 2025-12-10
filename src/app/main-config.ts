@@ -31,5 +31,6 @@ export const GlobalVar = Object.freeze({
     db_url     : 'http://192.168.77.253:20022',     
     db_url_nest: 'http://192.168.77.253:10101',
     serv_site: 'https://serv-site.menarada.gov.ua',
+    serv_docs: 'https://serv-docs.menarada.gov.ua',
     nest: true     
 });

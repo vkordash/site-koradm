@@ -1,5 +1,45 @@
 <app-breadcrumb></app-breadcrumb>   
-<div class="main-header bg-green-100">
+
+<div class="news-grid">
+  <article *ngFor="let item of listNews"
+           class="news-card"
+           role="article"
+           >
+
+    <p-card>
+
+      <!-- Заголовок + фото -->
+      <ng-template pTemplate="header">
+        <h3 id="title-{{item.id}}" class="news-title">{{ item.title }}</h3>
+        <img [src]="item.photo" [alt]="item.title" class="news-image" />
+      </ng-template>
+
+      <!-- Тело карточки -->
+      <div class="news-body">
+        <h3 id="title-{{item.id}}" class="news-title" [innerHTML]="item.head"></h3>
+
+        <p class="news-short" [innerHTML]="item.text"></p>
+
+        <div class="news-meta">
+          <small>{{ item.date | date:'dd.MM.yyyy' }}</small>
+
+          <button
+            pButton
+            type="button"
+            label="Читати"
+            icon="pi pi-eye"
+            class="p-button-text"
+            (click)="set_page(item.id)">
+          </button>
+        </div>
+      </div>
+
+    </p-card>
+
+  </article>
+</div>
+
+<!--<div class="main-header bg-green-100">
     <h2 class='main-header-title'>{{NameMenu}}</h2>    
 </div>
 
@@ -12,7 +52,7 @@
         </div>
         <div class="pb-3 pl-3 pr-3 align-items-center text-blue-500"> <span [innerHTML]="item.head"></span></div>        
     </div>   
-</div>
+</div> -->
 
 
 

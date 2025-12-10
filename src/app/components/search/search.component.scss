@@ -1,0 +1,93 @@
+.search-box {
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px; /* ограничиваем контейнер */
+}
+
+.search-grid {
+  display: flex;
+  justify-content: space-between; /* ровные промежутки между полями */
+  gap: 3rem; /* дополнительный отступ между колонками */
+}
+
+.search-field {
+  flex: 1; /* все поля одинаковой ширины */
+  min-width: 150px; /* минимальная ширина, чтобы не сжималось */
+}
+
+.search-field-wide {
+  flex: 2; /* поле поиска будет в два раза шире */
+}
+
+
+.btn-wide {
+  padding: 0.7rem 2rem; /* увеличиваем внутренние отступы */
+  font-size: 1rem;        /* делаем текст больше */
+  display: inline-flex;   /* чтобы иконка и текст были горизонтально */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-wide .pi {
+  margin-right: 0.5rem; /* расстояние между иконкой и текстом */
+}
+
+/* Центрирование спиннера */
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.highlight {
+  background: yellow;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.no-data {
+  text-align: center;
+  color: #777;
+  margin-top: 1rem;
+}
+
+
+.result-block {
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-meta {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.result-date {
+  font-weight: 500;
+}
+
+.result-type {
+  font-style: italic;
+}
+
+.result-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.result-actions {
+  margin-top: 0.3rem;
+}
+
+.highlight {
+  background: #fff3a3;
+  color: #222;
+  padding: 0 2px;
+  border-radius: 3px;
+}

@@ -10,11 +10,7 @@
         <div class="img-container">
           <img [src]="item.src" [alt]="item.title || 'image'">
         </div>
-
-        <h3 class="img-title" *ngIf="item.title">{{ item.title }}</h3>
-        <!--<p class="img-date">{{ item.date }}</p>
-        <p class="img-text">{{ item.text }}</p>-->
-
+        <h3 class="img-title" *ngIf="item.title">{{ item.title }}</h3>        
       </div>
     </div>
 

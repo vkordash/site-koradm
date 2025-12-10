@@ -1,0 +1,27 @@
+.aside-card {
+  margin-bottom: 2rem;
+}
+
+.anons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.anons-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.anons-item:hover {
+  background: #f7f9fc;
+}
+.anons-title {
+  font-weight: 500;
+}
+
+.anons-date {
+  color: #888;
+}

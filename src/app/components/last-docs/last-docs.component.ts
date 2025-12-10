@@ -12,7 +12,7 @@ import { SanitizedHtmlPipe } from '../../pipes/sanitized-html.pipe';
 @Component({
   selector: 'app-last-docs',
   templateUrl: './last-docs.component.html',
-  styleUrls: ['./last-docs.component.sass']
+  styleUrls: ['./last-docs.component.scss']
 })
 export class LastDocsComponent implements OnInit {
 
@@ -28,6 +28,10 @@ export class LastDocsComponent implements OnInit {
   
   constructor(private ListDocsService : ListDocsService, private MenuService: MenuService, private route: ActivatedRoute, private router: Router) { 
 
+  }
+
+  getTemplate(){
+    return './last-docs.component.html';
   }
 
   ngOnInit(): void {
@@ -55,4 +59,11 @@ export class LastDocsComponent implements OnInit {
       });      
   }
 
+  navigateToExternal(id : number) {
+    const baseUrl = 'https://docs.menarada.gov.ua/card';
+    const params = { 'id': id.toString()};
+    const url = `${baseUrl}?${new URLSearchParams(params).toString()}`;
+    window.open(url, '_blank');
+  }
+ 
 }

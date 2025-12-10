@@ -1,4 +1,32 @@
-<div class="main-header bg-green-100">
+<div  *ngIf="user_template == 0" class="videos-wrapper p-3">
+      <div class="main-section-title">
+        <h2 class='main-title-text'>{{NameMenu}}</h2>
+    </div> 
+  <div class="grid">
+
+    <div class="col-12 md:col-4" *ngFor="let video of ListVideos">
+      <div class="video-card">
+        
+        <div class="frame-container">
+          <iframe
+            [src]="video.link_frame"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <p class="video-date">{{ video.date }}</p>
+        <p class="video-text">{{ video.text }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--<div class="main-header bg-green-100">
     <h2 class='main-header-title'>{{NameMenu}}</h2>    
 </div>
 
@@ -12,7 +40,7 @@
             </div>  
         </div>  
     </div> 
-</div>
+</div>-->
 
 <p-paginator (onPageChange)="onPageChange($event)" 
     [first]="first"

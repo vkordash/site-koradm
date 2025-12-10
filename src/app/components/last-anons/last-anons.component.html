@@ -1,7 +1,7 @@
 <p-card *ngIf="user_template == 0" header="Анонси">
   <ul class="anons-list">
-    <li *ngFor="let a of listdocs" class="anons-item">
-      <span>{{ a.text }}</span>
+    <li *ngFor="let a of listdocs" class="anons-item" (click)="set_page(a.id)">
+      <span [innerHTML]="a.text"></span>
       <span>{{ a.date | date:'dd.MM.yyyy' }}</span>
     </li>
   </ul>

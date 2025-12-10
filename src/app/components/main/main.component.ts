@@ -46,10 +46,22 @@ export class MainComponent implements OnInit {
 
   public user_template = 0;
   
-  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, private config : AppConfigService){}
+  public params:any = {
+    'main_videos':{id:8,rows:3}
+  };
+
+  public params1: any ={};
+
+  constructor(private PreferService: PreferService, private LocalService: LocalService, private router: Router,  public sanitizer: DomSanitizer, private config : AppConfigService){
+   
+  }
 
 
   ngOnInit(): void {
+    this.params = this.PreferService.getTemplate('main');
+  //  console.log(this.params1);
+  //  this.params = this.params1.main;
+    console.log(this.params); 
     this.getData();
   }
 

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 import { MenubarModule } from 'primeng/menubar'; 
 import { MegaMenuModule } from "primeng/megamenu"; 
 import { PanelMenuModule } from 'primeng/panelmenu';
@@ -30,6 +31,7 @@ import { InputTextareaModule } from "primeng/inputtextarea";
 import { DocumentEditorModule } from '@onlyoffice/document-editor-angular';
 import { BlockUIModule } from "primeng/blockui"; 
 import { AccordionModule } from "primeng/accordion";
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 import { GalleriaModule } from 'primeng/galleria'; 
@@ -83,6 +85,7 @@ import { AppConfigService } from './services/app-config.service';
 import { GalleriaComponent } from './components/galleria/galleria.component';
 import { MainGalleriaComponent } from './components/main-galleria/main-galleria.component';
 
+import { ImageModule } from 'primeng/image';
 
 export function initializeApp(appConfig: AppConfigService) {
   return () => appConfig.loadConfig();
@@ -166,7 +169,9 @@ export function initializeApp(appConfig: AppConfigService) {
     InputTextareaModule,
     CardModule,
     AccordionModule,
-    BlockUIModule
+    BlockUIModule,
+    ImageModule,
+    ProgressSpinnerModule
 ],
 exports: [
   SanitizedHtmlPipe

@@ -9,7 +9,9 @@ import { GlobalVar } from '../main-config';
 })
 
 export class ListDocsService {
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  //private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  private url = GlobalVar.serv_site;        //  url базы данных (без путей)
+  private url_serv_docs = GlobalVar.serv_docs;        //  url базы данных (без путей)
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,7 +31,7 @@ export class ListDocsService {
   }
 
   getLast(id : number, limit : number,): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/listdocs/last?id="+id+"&limit="+limit);
+    let x = this.http.get<any>(this.url_serv_docs+"/list-docs/last?limit="+limit);
     return x;
   }
 }

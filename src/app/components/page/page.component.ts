@@ -17,7 +17,7 @@ import { SanitizedHtmlPipe } from '../../pipes/sanitized-html.pipe'
 })
 export class PageComponent implements OnInit {
 
-  page : IPage = {id : 0, head :'', title : '',  text : '', date : ''};
+  page : IPage = {id : 0, head :'', title : '',  text : '', date : '', id_menu : 0};
   id_site  : number = GlobalVar.id_site;
   id       : number = 0; 
   tp       : number = 0;   
@@ -39,14 +39,14 @@ export class PageComponent implements OnInit {
       console.log(params);
       this.id = params['id'];
       this.tp = params['tp'] ? Number(params['tp']) : 1;
-      this.getMenu()
+      if (this.tp==1) this.getMenu(this.id);
       this.getPage();      
     });  
   }
 
-  getMenu() : void{
-    if (this.id!=0) {
-      let s = this.MenuService.getData(this.id)
+  getMenu(id:number) : void{
+    if (id!=0) {
+      let s = this.MenuService.getData(id)
         .subscribe(data => {
           data.routerLink = '/'+data.routerlink;
           this.Menu = data;  
@@ -59,6 +59,7 @@ export class PageComponent implements OnInit {
     let s = this.pageService.getPage(this.id,this.tp)
         .subscribe(page => {
           this.page = page;
+          if (this.tp==0) this.getMenu(page.id_menu);
         //  this.page.text = page.text.replace( /\.\/web_docs/gi, "http://koradm.cg.gov.ua/web_docs" );    
           s.unsubscribe(); 
        });   

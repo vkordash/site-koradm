@@ -4,5 +4,6 @@ export interface IPage {
     title : string;
     text  : string;
     date  : string;
+    id_menu?: number;
 }
 

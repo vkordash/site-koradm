@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../../services/page.service'
 import { GlobalVar } from '../../main-config'; 
 import { IPage } from '../../interfaces/page';
+import { MenuService } from '../../services/menu.service';
+import { IMenu } from 'src/app/interfaces/tree';
 import { SanitizedHtmlPipe } from '../../pipes/sanitized-html.pipe'
 
 //import { SafeHtmlPipe } from '../../pipes/sanitized-html.pipe'; 
@@ -21,6 +23,7 @@ export class PageComponent implements OnInit {
   tp       : number = 0;   
   id_menu  : number = 0;
   main_page: boolean =  false; //признак главной страницы false - не главная, true - главная
+  Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
 
   public user_template = 0;
 
@@ -29,18 +32,29 @@ export class PageComponent implements OnInit {
   public id_last_docs=40958;
   public rows_last_docs = 6;
 
-  constructor(private pageService : PageService, private route: ActivatedRoute, private router: Router, private location: Location) { }
+  constructor(private pageService : PageService, private route: ActivatedRoute, private MenuService: MenuService, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       console.log(params);
       this.id = params['id'];
       this.tp = params['tp'] ? Number(params['tp']) : 1;
-      
+      this.getMenu()
       this.getPage();      
     });  
   }
 
+  getMenu() : void{
+    if (this.id!=0) {
+      let s = this.MenuService.getData(this.id)
+        .subscribe(data => {
+          data.routerLink = '/'+data.routerlink;
+          this.Menu = data;  
+        //  console.log(data); 
+          s.unsubscribe();      
+        });
+      }        
+  }
   getPage(){
     let s = this.pageService.getPage(this.id,this.tp)
         .subscribe(page => {

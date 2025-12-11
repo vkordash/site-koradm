@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuService } from '../../services/menu.service';
 import { Location } from '@angular/common'
 import { ContentService } from '../../services/content.service'; 
 import { IMenu } from 'src/app/interfaces/tree';
@@ -13,14 +14,35 @@ export class ContentComponent implements OnInit {
   
   id: number = 0;
   content: IMenu[] = [];
+  Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
   
-  constructor(private contentService : ContentService, private route: ActivatedRoute, private router: Router, private location: Location) { }
+  public id_last_anons=7;
+  public rows_last_anons = 6;
+  public id_last_docs=40958;
+  public rows_last_docs = 6;
+
+  public user_template = 0;
+
+  constructor(private contentService : ContentService, private route: ActivatedRoute, private router: Router, private MenuService: MenuService, private location: Location) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
+      this.getMenu();
       this.getContent();
     });
+  }
+
+  getMenu() : void{
+    if (this.id!=0) {
+      let s = this.MenuService.getData(this.id)
+        .subscribe(data => {
+          data.routerLink = '/'+data.routerlink;
+          this.Menu = data;  
+        //  console.log(data); 
+          s.unsubscribe();      
+        });
+      }        
   }
 
   getContent(){
@@ -42,6 +64,10 @@ export class ContentComponent implements OnInit {
       else it.queryParams = {"id": it.id};
     })
     return bc;
+  }
+
+  backHistory(): void {
+    this.location.back();
   }
 }
 

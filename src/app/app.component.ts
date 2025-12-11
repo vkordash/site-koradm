@@ -11,7 +11,7 @@ import { PreferService } from 'src/app/services/prefer.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Test site template';

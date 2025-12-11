@@ -2,8 +2,8 @@
 <app-menubar [id]="menu_top"></app-menubar>
 <!-- <app-megamenu [id]="0"></app-megamenu> -->
 <!--<div class="main-wrapper" (window:resize)="onResize($event);" >    
-    <div *ngIf="cols>1" class="left-col p-2 {{width_lc}}">
-      <!--<app-banner [id_banner]="banner_left_up"></app-banner> -->
+    <div *ngIf="cols>1" class="left-col p-2 {{width_lc}}"> -->
+      <!-- <app-banner [id_banner]="banner_left_up"></app-banner> -->
       <!--  <app-panelmenu [id]="menu_left"></app-panelmenu> -->
       <!--<app-slide-menu [id]="menu_left"></app-slide-menu> -->
       <!--  <app-banner [id_banner]="banner_left_down"></app-banner> -->
@@ -12,6 +12,7 @@
         <router-outlet></router-outlet> 
     </div>    
 </div>    -->
-
-<router-outlet></router-outlet> 
+<div class="main-wrapper">
+    <router-outlet></router-outlet> 
+</div>
 <app-footer></app-footer>

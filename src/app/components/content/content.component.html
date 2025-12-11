@@ -1,9 +1,31 @@
 <app-breadcrumb></app-breadcrumb>
-<div class="main">
-    <ul>
-        <li *ngFor="let item of content">
-            <a *ngIf="item.url === ''" [routerLink]="item.routerLink" [queryParams]="item.queryParams">{{ item.name }}</a>
-            <a *ngIf="item.url !== ''" href="{{item.url}}" target="_blank">{{ item.name }}</a>
-        </li>
-    </ul>
+
+<div *ngIf="user_template == 0" class="page-wrapper grid gap-0">
+
+  <!-- 📰 Левая колонка (контент страницы) -->
+  <div class="col-12 lg:col-8 md:col-8 p-p-3 page-content">
+
+    <div class="main-section-title">
+      <h2 class='main-title-text'><a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">{{ Menu.name }}</a></h2>
+    </div> 
+
+    <app-chips></app-chips>
+    
+    <div class="main">
+        <ul>
+            <li *ngFor="let item of content">
+                <a *ngIf="item.url === ''" [routerLink]="item.routerLink" [queryParams]="item.queryParams">{{ item.name }}</a>
+                <a *ngIf="item.url !== ''" href="{{item.url}}" target="_blank">{{ item.name }}</a>
+            </li>
+        </ul>
+    </div>
+
   </div>
+
+  <!-- 📚 Правая колонка (aside — анонсы + документы) -->
+  <div class="col-12 lg:col-4 md:col-4 p-p-3 page-aside aside-hide-on-mobile">
+    <app-last-anons *ngIf="id_last_anons!=0" [id]="id_last_anons" [rows]="rows_last_anons"></app-last-anons>
+    <app-last-docs *ngIf="id_last_docs>0" [id]="id_last_docs" [rows]="rows_last_docs"></app-last-docs>
+  </div>
+
+</div>

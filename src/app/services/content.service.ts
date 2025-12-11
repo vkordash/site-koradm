@@ -9,7 +9,8 @@ import { GlobalVar } from '../main-config';
 })
 
 export class ContentService {
-  private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  //private url = GlobalVar.db_url;        //  url базы данных (без путей)
+  private url = GlobalVar.serv_site;        //  url базы данных (без путей)
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

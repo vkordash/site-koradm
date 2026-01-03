@@ -30,8 +30,8 @@ export class MainMediaComponent implements OnInit {
 
   ngOnInit(): void {
     //this.getMenu();
-    this.getDataPhoto(this.id_photo,this.rows_photo,0);
-    this.getDataVideo(this.id_video,this.rows_video,0);
+    this.getDataPhoto(this.id_photo,0,this.rows_photo);
+    this.getDataVideo(this.id_video,0,this.rows_video);
   }
 
   getMenu() : void{
@@ -45,15 +45,15 @@ export class MainMediaComponent implements OnInit {
         });
     }   
   }
-  getDataPhoto(id_menu : number, limit : number, offset : number): void {    
-    this.ListPhotosService.getData(id_menu,limit,offset)
+  getDataPhoto(id_menu : number, offset : number, limit : number): void {    
+    this.ListPhotosService.getData(id_menu,offset,limit)
       .subscribe(data => {
         this.ListPhotos = [...data];       
       });      
   } 
 
-  getDataVideo(id_menu : number, limit : number, offset : number): void {    
-    this.ListVideosService.getData(id_menu,limit,offset)
+  getDataVideo(id_menu : number, offset : number, limit : number): void {    
+    this.ListVideosService.getData(id_menu,offset,limit)
       .subscribe(data => {
         this.ListVideos = [...data];       
       });      

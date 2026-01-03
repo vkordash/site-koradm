@@ -19,7 +19,7 @@ export class ListAnonsService {
   constructor(private http: HttpClient) {
   }
 
-  getData(id : number, limit : number, offset : number): Observable<any> {    
+  getData(id : number, offset : number, limit : number): Observable<any> {    
     let x = this.http.get<any>(this.url+"/page/list?id="+id+"&limit="+limit+"&offset="+offset);
     return x;
   }

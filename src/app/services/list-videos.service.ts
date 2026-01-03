@@ -18,8 +18,8 @@ export class ListVideosService {
   constructor(private http: HttpClient) {
   }
 
-  getData(id : number, limit : number, offset : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/video/list?id="+id+"&limit="+limit+"&offset="+offset);
+  getData(id : number, offset : number, limit : number ): Observable<any> {    
+    let x = this.http.get<any>(this.url+"/video/list?id="+id+"&offset="+offset+"&limit="+limit);
     return x;
   }
 
@@ -33,3 +33,6 @@ export class ListVideosService {
     return x;
   }
 }
+
+https://serv-site.menarada.gov.ua/video/list?id=8&limit=0&offset=3
+https://serv-site.menarada.gov.ua/video/list?id=8&limit=8&offset=0

@@ -18,7 +18,7 @@ export class MainVideosComponent implements OnInit {
   Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
   @Input() rows : number = 3;
   
-  @Input() params : {id:number; rows:number} ={id:0,rows:0};
+  //@Input() params : {id:number; rows:number} ={id:0,rows:0};
   
   id: number = 8;
 
@@ -31,9 +31,9 @@ export class MainVideosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.params);
+  //  console.log(this.params);
     this.getMenu();
-    this.getData(this.id,this.rows,0);
+    this.getData(this.id, 0, this.rows);
   }
 
   getMenu() : void{
@@ -47,8 +47,8 @@ export class MainVideosComponent implements OnInit {
         });
     }   
   }
-  getData(id_menu : number, limit : number, offset : number): void {    
-    this.ListVideosService.getData(id_menu,offset,limit)
+  getData(id_menu : number, offset : number, limit : number): void {    
+    this.ListVideosService.getData(id_menu, offset, limit)
     .subscribe((data: any[]) => {
     this.ListVideos = data.map((v: any) => {
       const rawUrl = this.extractUrlFromIframe(v.link_frame); // если приходит HTML

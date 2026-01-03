@@ -41,8 +41,8 @@ export class MainPhotosComponent implements OnInit {
         });
     }   
   }
-  getData(id_menu : number, limit : number, offset : number): void {    
-    this.ListPhotosService.getData(id_menu,limit,offset)
+  getData(id_menu : number, offset : number, limit : number): void {    
+    this.ListPhotosService.getData(id_menu,offset,limit)
       .subscribe(data => {
         this.images = [...data];       
       });      

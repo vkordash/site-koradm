@@ -69,7 +69,7 @@ public user_template = 0;
       this.getMenu();
     }      
     else
-      this.getData(this.id_menu,this.rows, this.first);              
+      this.getData(this.id_menu, this.first,this.rows);              
   }
 
   getMenu() : void{
@@ -91,8 +91,8 @@ public user_template = 0;
       });      
   }
 
-  getData(id_menu : number, limit : number, offset : number): void {    
-    let s = this.ListPagesService.getData(id_menu,limit,offset)
+  getData(id_menu : number, offset : number, limit : number): void {    
+    let s = this.ListPagesService.getData(id_menu, offset, limit)
       .subscribe(data => {
         this.listNews = [...data];
        
@@ -105,7 +105,7 @@ public user_template = 0;
   onPageChange(event : any) {
     this.rows = event.rows;
     this.first = event.first; // * event.rows;
-    this.getData(this.id_menu,this.rows,this.first)
+    this.getData(this.id_menu,this.first,this.rows)
     console.log(event);
   }
 

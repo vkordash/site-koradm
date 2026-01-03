@@ -30,7 +30,7 @@ export class ListPhotosComponent implements OnInit {
     if (this.totalRecords == 0)
       this.getCntAll();
     else
-      this.getListAll(this.rows, this.first);  
+      this.getListAll(this.first,this.rows);  
   }
 
   getCnt(id_menu : number) : void {
@@ -42,8 +42,8 @@ export class ListPhotosComponent implements OnInit {
       });      
   }
 
-  getListAll(limit : number, offset : number): void {    
-    this.ListPhotosService.getListAll(limit,offset)
+  getListAll(offset : number,limit : number ): void {    
+    this.ListPhotosService.getListAll(offset, limit)
       .subscribe(data => {
         this.images = [...data];
         console.log(this.images);       

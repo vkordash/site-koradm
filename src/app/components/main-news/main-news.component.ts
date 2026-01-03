@@ -67,7 +67,7 @@ export class MainNewsComponent implements OnInit {
    
 
 
-   getData(id_menu : number, limit : number, offset : number): void {    
+   getData(id_menu : number, offset : number, limit : number): void {    
      let s = this.ListPagesService.getData(id_menu,limit,offset)
        .subscribe(data => {
         this.listNews = [...data];

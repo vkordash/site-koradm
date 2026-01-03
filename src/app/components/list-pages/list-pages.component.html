@@ -1,7 +1,13 @@
 
 <app-breadcrumb></app-breadcrumb>   
+
 <div class="main-header bg-green-100">
-    <h2 class='main-header-title'><img *ngIf="MenuIcon != null"  [src]="MenuIcon" class="menu-icon">{{MenuName}}</h2>    
+    <div class="flex">
+      <img *ngIf="Menu.show_icon && Menu.icon != null"  [src]="Menu.icon" class="menu-icon">
+      <h2 *ngIf="Menu.show_name" class='main-header-title'>        
+        {{Menu.name}}
+      </h2>    
+    </div>      
 </div>
 
 <div class="news-grid">

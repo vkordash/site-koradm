@@ -5,6 +5,7 @@ import { MenuService } from '../../services/menu.service';
 import { Subscription } from 'rxjs';
 import { GlobalVar } from '../../main-config'; 
 import { IPage } from '../../interfaces/page';
+import { IMenu } from 'src/app/interfaces/tree';
 import { ListPages } from '../../interfaces/listpages';
 import { LocalService } from 'src/app/services/local.service';
 
@@ -21,8 +22,7 @@ export class ListPagesComponent implements OnInit {
   
   listNews:  ListPages[] = [];
   id_menu  : number = 0;
-  MenuName ?: string='';
-  MenuIcon ?: string='';
+  Menu : IMenu = {};
 
   first    : number = 0;
   rows     : number = 12;
@@ -75,8 +75,8 @@ public user_template = 0;
   getMenu() : void{
     let s = this.MenuService.getData(this.id_menu)
       .subscribe(data => {
-        this.MenuName = data.label; 
-        this.MenuIcon = data.icon; 
+        console.log(data);
+        this.Menu = data 
         s.unsubscribe();      
       });
         

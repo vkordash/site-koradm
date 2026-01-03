@@ -6,7 +6,7 @@
     <p-card>
       <ng-template pTemplate="header">
         <h3 id="title-{{item.id}}" class="news-title">{{ item.title }}</h3>
-        <img [src]="item.photo" [alt]="item.title" class="news-image" />
+        <img *ngIf="item.photo_src != null"  [src]="item.photo_src" [alt]="item.photo_alt" [title]="item.photo_title" class="news-image" />
       </ng-template>
 
       <div class="news-body">
@@ -43,8 +43,8 @@
                 <article>
                     <div class="article-title"  [innerHTML]="itemNews.title"></div>
                     <div class="article-head"  [innerHTML]="itemNews.head"></div>
-                    <div *ngIf="itemNews.photo != null"  class="item-news-list-img">
-                        <img src="{{itemNews.photo}}" class="image_title_news" alt="Image" >
+                    <div *ngIf="itemNews.photo_src != null"  class="item-news-list-img">
+                        <img src="{{itemNews.photo_src}}" class="image_title_news" alt="{{itemNews.photo_alt}}" title="{{itemNews.photo_title}}">
                     </div>               
                     
                     <div class="article-text" [innerHTML]="itemNews.text"></div>

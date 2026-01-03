@@ -11,7 +11,7 @@
       <!-- Заголовок + фото -->
       <ng-template pTemplate="header">
         <h3 id="title-{{item.id}}" class="news-title">{{ item.title }}</h3>
-        <img [src]="item.photo" [alt]="item.title" class="news-image" />
+        <img [src]="item.photo_src" [alt]="item.photo_alt" [title]="item.photo_title" class="news-image" />
       </ng-template>
 
       <!-- Тело карточки -->

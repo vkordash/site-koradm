@@ -48,7 +48,7 @@ export class MainVideosComponent implements OnInit {
     }   
   }
   getData(id_menu : number, limit : number, offset : number): void {    
-    this.ListVideosService.getData(id_menu,limit,offset)
+    this.ListVideosService.getData(id_menu,offset,limit)
     .subscribe((data: any[]) => {
     this.ListVideos = data.map((v: any) => {
       const rawUrl = this.extractUrlFromIframe(v.link_frame); // если приходит HTML

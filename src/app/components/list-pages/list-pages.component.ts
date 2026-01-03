@@ -21,7 +21,8 @@ export class ListPagesComponent implements OnInit {
   
   listNews:  ListPages[] = [];
   id_menu  : number = 0;
-  NameMenu ?: string='';
+  MenuName ?: string='';
+  MenuIcon ?: string='';
 
   first    : number = 0;
   rows     : number = 12;
@@ -74,7 +75,8 @@ public user_template = 0;
   getMenu() : void{
     let s = this.MenuService.getData(this.id_menu)
       .subscribe(data => {
-        this.NameMenu = data.label;  
+        this.MenuName = data.label; 
+        this.MenuIcon = data.icon; 
         s.unsubscribe();      
       });
         

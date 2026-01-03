@@ -1,4 +1,8 @@
+
 <app-breadcrumb></app-breadcrumb>   
+<div class="main-header bg-green-100">
+    <h2 class='main-header-title'><img *ngIf="MenuIcon != null"  [src]="MenuIcon" class="menu-icon">{{MenuName}}</h2>    
+</div>
 
 <div class="news-grid">
   <article *ngFor="let item of listNews"
@@ -11,7 +15,7 @@
       <!-- Заголовок + фото -->
       <ng-template pTemplate="header">
         <h3 id="title-{{item.id}}" class="news-title">{{ item.title }}</h3>
-        <img [src]="item.photo_src" [alt]="item.photo_alt" [title]="item.photo_title" class="news-image" />
+        <img *ngIf="item.photo_src != null"  [src]="item.photo_src" [alt]="item.photo_alt" [title]="item.photo_title" class="news-image" />
       </ng-template>
 
       <!-- Тело карточки -->

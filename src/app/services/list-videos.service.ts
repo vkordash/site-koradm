@@ -33,6 +33,3 @@ export class ListVideosService {
     return x;
   }
 }
-
-https://serv-site.menarada.gov.ua/video/list?id=8&limit=0&offset=3
-https://serv-site.menarada.gov.ua/video/list?id=8&limit=8&offset=0

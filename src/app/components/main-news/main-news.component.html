@@ -2,6 +2,16 @@
   
 
 <div *ngIf="user_template == 0" class="news-list">
+  <div class="main-section-title">
+    <div class="flex justify-content-center align-items-center gap-2">
+      <a [routerLink]="Menu.routerLink" [queryParams]="Menu.queryParams">
+        <img *ngIf="Menu.show_icon && Menu.icon != null"  [src]="Menu.icon" class="menu-icon">
+        <h2 *ngIf="Menu.show_name" class='main-header-title'>        
+          {{Menu.name}}
+        </h2>    
+      </a>      
+    </div>        
+  </div> 
   <article *ngFor="let item of listNews;" class="news-card" role="article" aria-labelledby="title-">
     <p-card>
       <ng-template pTemplate="header">

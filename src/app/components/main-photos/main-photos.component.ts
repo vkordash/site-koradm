@@ -27,7 +27,7 @@ export class MainPhotosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMenu();
-    this.getData(this.id,this.rows,0);
+    this.getData(this.id,0,this.rows);
   }
 
   getMenu() : void{

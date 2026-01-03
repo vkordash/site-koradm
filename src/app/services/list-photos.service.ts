@@ -19,7 +19,7 @@ export class ListPhotosService {
   }
 
   getData(id : number, offset : number, limit : number): Observable<any> {    
-    let x = this.http.get<any>(this.url+"/photo/list?id="+id+"&limit="+limit+"&offset="+offset);
+    let x = this.http.get<any>(this.url+"/photo/list?id="+id+"&offset="+offset+"&limit="+limit);
     return x;
   }
 
@@ -28,7 +28,7 @@ export class ListPhotosService {
     return x;
   }
 
-  getListAll(limit : number, offset : number): Observable<any> {    
+  getListAll(offset : number, limit : number ): Observable<any> {    
     let x = this.http.get<any>(this.url+"/photo/list-all?limit="+limit+"&offset="+offset);
     return x;
   }

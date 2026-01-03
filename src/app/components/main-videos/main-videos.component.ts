@@ -18,7 +18,7 @@ export class MainVideosComponent implements OnInit {
   Menu : IMenu = {"name":"","routerLink":"","queryParams":""} ;
   @Input() rows : number = 3;
   
-  //@Input() params : {id:number; rows:number} ={id:0,rows:0};
+  @Input() params : {id:number; rows:number} ={id:0,rows:0};
   
   id: number = 8;
 
@@ -31,7 +31,7 @@ export class MainVideosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  //  console.log(this.params);
+    console.log(this.params);
     this.getMenu();
     this.getData(this.id, 0, this.rows);
   }

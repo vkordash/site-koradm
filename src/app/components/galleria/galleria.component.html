@@ -10,14 +10,14 @@
         [showThumbnails]="false" 
         [containerStyle]="{ 'max-width': '640px', 'margin' : '20px auto' }">
         <ng-template pTemplate="item" let-item>
-            <img [src]="item.src" style="height: 640px; display: block;" />
+            <img [src]="item.photo_src" style="height: 640px; display: block;" [alt]="item.photo_alt" [title]="item.photo_title" />
             
         </ng-template>
         <ng-template pTemplate="caption" let-item>
             <h4 style="margin-bottom: .5rem; color: #ffffff;">
-                {{ item.title }}
+                {{ item.photo_title }}
             </h4>
-            <p>{{ item.alt }}</p>
+            <p>{{ item.photo_alt }}</p>
         </ng-template>
     </p-galleria>
 </div>
